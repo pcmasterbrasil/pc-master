@@ -31,7 +31,8 @@ footer{text-align:center;padding:25px;color:#8fa4bf}
 <main>
 <section class="card">
 <h2>Monte sua configuração</h2>
-<p>Informe seu orçamento e escolha o que pretende fazer com o computador.</p>\n<p class="small" id="price-status">Consultando data da última atualização de preços...</p>
+<p>Informe seu orçamento e escolha o que pretende fazer com o computador.</p>
+<p class="small" id="price-status">Consultando data da última atualização de preços...</p>
 
 <label for="budget">Quanto pretende gastar? (R$)</label>
 <input id="budget" type="number" min="1000" step="100" value="3500">
@@ -89,7 +90,7 @@ async function buildPC(){
   }else{
    builds.forEach((build,index)=>{
     const card=document.createElement('div');card.className='part';const h=document.createElement('h3');h.textContent='Configuração '+(index+1)+' — '+build.total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});card.appendChild(h);
-    build.parts.forEach(product=>{const offer=window.PCMaster.offersFor(product)[0];const p=document.createElement('p');p.textContent=product.category.toUpperCase()+': '+(product.brand||'')+' '+product.model+' — '+Number(offer.price).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · '+(offer.store||'Loja')+' ';const a=document.createElement('a');a.href=offer.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Ver oferta';p.appendChild(a);card.appendChild(p);});
+    build.parts.forEach(product=>{const offer=product.selectedOffer||window.PCMaster.offersFor(product)[0];const p=document.createElement('p');p.textContent=product.category.toUpperCase()+': '+(product.brand||'')+' '+product.model+' — '+Number(offer.price).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · '+(offer.store||'Loja')+' · consulta: '+new Date(offer.checkedAtTime||offer.checkedAt).toLocaleDateString('pt-BR')+' ';const a=document.createElement('a');a.href=offer.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Ver oferta';p.appendChild(a);card.appendChild(p);});
     partsBox.appendChild(card);
    });
    advice.textContent='Ofertas do catálogo consultadas nos últimos 7 dias. Confirme preço e estoque na loja antes de comprar.';
