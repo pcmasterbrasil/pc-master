@@ -42,8 +42,13 @@ const PCMaster = (() => {
     if (ss.formFactor === "M.2 2280" && bs.m2Slots === 0) return false;
     if (gpu && ks.maxGpuLengthMm && gpu.specs?.lengthMm && gpu.specs.lengthMm > ks.maxGpuLengthMm) return false;
     if (gpu && gpu.specs?.powerConnectors?.length) {
-      const available = powerConnectors(ps);
-      if (!available.length || gpu.specs.powerConnectors.some(c => !available.includes(c))) return false;
+      const countPcie8 = list => (list || []).reduce((sum, value) => {
+        const text = String(value).toLowerCase();
+        if (!/pcie|pci-e|6\+2|8.?pin/.test(text)) return sum;
+        const match = text.match(/(\d+)\s*x/);
+        return sum + (match ? Number(match[1]) : 1);
+      }, 0);
+      if (countPcie8(powerConnectors(ps)) < countPcie8(gpu.specs.powerConnectors)) return false;
     }
     if (cooler) {
       if (cooler.specs?.sockets && !cooler.specs.sockets.includes(cs.socket)) return false;
