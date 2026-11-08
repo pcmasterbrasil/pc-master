@@ -55,7 +55,7 @@ footer{text-align:center;padding:25px;color:#8fa4bf}
 </section>
 
 <section class="card result" id="result">
-<h2>Sua configuração recomendada</h2>
+<h2>Configurações encontradas</h2>
 <p id="summary"></p>
 <div id="parts"></div>
 <p class="small" id="advice"></p>
@@ -82,6 +82,13 @@ async function buildPC(){
  try{
   const response=await fetch('catalogo.json',{cache:'no-store'});if(!response.ok)throw new Error('Não foi possível carregar o catálogo.');
   const catalog=await response.json();
+  const status=document.getElementById('price-status');
+  if(catalog.lastPriceSyncAt){
+   const checked=new Date(catalog.lastPriceSyncAt);
+   status.textContent='Última sincronização automática: '+checked.toLocaleString('pt-BR')+'. Ofertas são exibidas somente enquanto estiverem dentro do prazo de validade.';
+  }else{
+   status.textContent='Atualização automática: falta conectar um feed/API autorizado. As ofertas existentes mostram a data da consulta individual.';
+  }
   const builds=window.PCMaster.generate(catalog,budget,purpose,priority);
   summary.textContent='Orçamento: '+budget.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · Finalidade: '+({games:'Jogos',work:'Trabalho e estudos',editing:'Edição'}[purpose])+' · Prioridade: '+({balance:'Equilíbrio',performance:'Desempenho',economy:'Economia'}[priority]);
   if(!builds.length){
