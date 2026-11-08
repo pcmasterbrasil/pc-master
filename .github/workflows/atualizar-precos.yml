@@ -1,6 +1,10 @@
 name: Atualizar preços do catálogo
 
 on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "catalogo.json"
   schedule:
     - cron: "17 */6 * * *"
   workflow_dispatch:
