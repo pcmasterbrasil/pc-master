@@ -157,7 +157,8 @@ async function buildPC(){
  result.style.display='block';summary.textContent='Consultando catálogo e verificando compatibilidade...';
  document.getElementById('parts').textContent='';
  document.getElementById('progress').textContent='';
- const floatingButton=document.getElementById('next-build');\n  floatingButton.disabled=false;floatingButton.textContent='↻';floatingButton.setAttribute('aria-label','Gerar próxima configuração');floatingButton.title='Gerar próxima configuração';
+ const floatingButton=document.getElementById('next-build');
+  floatingButton.disabled=false;floatingButton.textContent='↻';floatingButton.setAttribute('aria-label','Gerar próxima configuração');floatingButton.title='Gerar próxima configuração';
  document.getElementById('print-build').style.display='none';
  try{
   const response=await fetch('catalogo.json',{cache:'no-store'});if(!response.ok)throw new Error('Não foi possível carregar o catálogo.');
