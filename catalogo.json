@@ -453,6 +453,30 @@
       ],
       "specSource": "https://www.asrock.com/Graphics-Card/AMD/Radeon%20RX%207600%20Challenger%208GB%20OC/index.br.asp",
       "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "asrock-rx-6600-challenger-d-8gb-rx6600-cld-8g",
+      "brand": "ASRock",
+      "model": "Radeon RX 6600 Challenger D 8GB (RX6600 CLD 8G)",
+      "category": "gpu",
+      "specs": {
+        "vramGb": 8,
+        "memoryType": "GDDR6",
+        "busWidthBit": 128,
+        "interface": "PCIe 4.0 x8",
+        "powerConnectors": [
+          "1x PCIe 8-pin"
+        ],
+        "recommendedPsuW": 500,
+        "lengthMm": 269
+      },
+      "researchStatus": "candidate_specs_confirmed_offer_needs_new_condition_price_and_stock",
+      "offers": [],
+      "identifiers": [
+        "RX6600 CLD 8G"
+      ],
+      "specSource": "https://www.asrock.com/Graphics-Card/AMD/Radeon%20RX%206600%20Challenger%20D%208GB/index.br.asp",
+      "specsVerifiedAt": "2026-11-08"
     }
   ],
   "offers": [],
@@ -469,7 +493,8 @@
     "Placa-mãe MSI B550M-A PRO adicionada com oferta Pichau de R$ 489,99 no Pix e indicação de Produto Disponível consultadas em 2026-11-08. Soquete AM4, DDR4, mATX, 2 slots de memória, até 64GB e 1 slot M.2. Antes da compra, conferir a versão de BIOS exigida pelo Ryzen específico.",
     "Kit Team Group T-Force Elite Plus 16GB (2x8GB) DDR4-3200 teve preço de R$ 299,99 no Pix rechecado na Pichau em 2026-11-08, mas sem confirmação explícita de estoque no conteúdo acessível; permanece fora do gerador.",
     "Compatibilidade de BIOS refinada: a lista de CPUs compatíveis da MSI reproduzida pela Pangoly indica BIOS 7C96v27 como mínima para Ryzen 5 5500 na B550M-A PRO. Confirmar a versão instalada com a loja antes da compra.",
-    "ASRock Radeon RX 7600 Challenger OC 8GB (90-GA41ZZ-00UANF) adicionada como candidata técnica em 2026-11-08. Especificações oficiais ASRock: 8GB GDDR6, 128-bit, PCIe 4.0 x8, 165W, 1x8-pin, PSU recomendado 550W e comprimento 269,2mm. Oferta FGTEC com 5 unidades e R$ 2.616,60 observada, mas condição nova ainda precisa confirmação explícita; não participa do gerador."
+    "ASRock Radeon RX 7600 Challenger OC 8GB (90-GA41ZZ-00UANF) adicionada como candidata técnica em 2026-11-08. Especificações oficiais ASRock: 8GB GDDR6, 128-bit, PCIe 4.0 x8, 165W, 1x8-pin, PSU recomendado 550W e comprimento 269,2mm. Oferta FGTEC com 5 unidades e R$ 2.616,60 observada, mas condição nova ainda precisa confirmação explícita; não participa do gerador.",
+    "ASRock Radeon RX 6600 Challenger D 8GB adicionada como candidata técnica em 2026-11-08, com especificações conferidas na página oficial ASRock. Ainda sem oferta direta validada com condição nova, preço e estoque; não participa do gerador."
   ],
   "researchQueue": [
     {
@@ -545,6 +570,14 @@
       "model": "AMD Ryzen 5 5600 (100-100000927BOX)",
       "source": "Amazon Brasil / comparadores",
       "note": "Preço encontrado em agregador, ainda precisa de página direta de produto e confirmação de novo/estoque."
+    },
+    {
+      "productId": "asrock-rx-6600-challenger-d-8gb-rx6600-cld-8g",
+      "category": "gpu",
+      "model": "ASRock Radeon RX 6600 Challenger D 8GB (RX6600 CLD 8G)",
+      "source": "Varejistas brasileiros / comparadores",
+      "note": "Especificações oficiais ASRock conferidas: 8GB GDDR6, 128-bit, PCIe 4.0 x8, conector 8-pin, fonte recomendada 500W e comprimento 269mm. Pesquisas de mercado retornaram preços divergentes e anúncios sem confirmação suficiente de condição nova e estoque. Manter fora do gerador até validar página direta da loja, preço atual, produto novo e disponibilidade.",
+      "stockConfirmed": false
     }
   ]
 }
