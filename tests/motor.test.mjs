@@ -59,4 +59,9 @@ office[0].specs.integratedGraphics = true;
 assert.equal(PCMaster.generate({ products: office }, 2500, "work", "economy").length, 1,
   "trabalho pode usar vídeo integrado sem placa dedicada");
 
+const officeWithoutIntegratedGraphics = structuredClone(base).filter(p => p.category !== "gpu");
+officeWithoutIntegratedGraphics[0].specs.integratedGraphics = false;
+assert.equal(PCMaster.generate({ products: officeWithoutIntegratedGraphics }, 2500, "work", "economy").length, 0,
+  "não deve montar PC sem GPU quando o processador não tem vídeo integrado");
+
 console.log("Testes PC MASTER: todos passaram.");
