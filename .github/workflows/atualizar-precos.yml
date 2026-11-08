@@ -24,13 +24,24 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Consultar feed autorizado de ofertas
-        if: ${{ secrets.PCMASTER_OFFERS_FEED_URL != '' }}
+      - name: Sincronizar ofertas do feed autorizado
         env:
           PCMASTER_OFFERS_FEED_URL: ${{ secrets.PCMASTER_OFFERS_FEED_URL }}
-        run: node scripts/sync-prices.mjs
-
-      - name: Informar ausência de integração
-        if: ${{ secrets.PCMASTER_OFFERS_FEED_URL == '' }}
         run: |
-          echo "::warning::Atualização automática ainda não conectada: configure o segredo PCMASTER_OFFERS_FEED_URL com a URL de um feed/API autorizado."
+          if [ -z "$PCMASTER_OFFERS_FEED_URL" ]; then
+            echo "::warning::Integração pendente. Configure o segredo PCMASTER_OFFERS_FEED_URL com um feed/API autorizado."
+            exit 0
+          fi
+          node scripts/sync-prices.mjs
+
+      - name: Salvar catálogo atualizado
+        run: |
+          if git diff --quiet -- catalogo.json; then
+            echo "Nenhuma mudança no catálogo."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add catalogo.json
+          git commit -m "Atualiza preços e disponibilidade do catálogo"
+          git push
