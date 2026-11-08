@@ -65,7 +65,7 @@ for (const item of feedOffers) {
   const availability = String(item.availability || "").toLowerCase();
   const inStock = item.inStock === true || item.in_stock === "1" || item.in_stock === true || availability === "in_stock";
   if (product && typeof store === "string" && store.trim() &&
-      (item.inStock === false || item.in_stock === "0" || availability === "out_of_stock" || availability === "not_available")) {
+      (item.inStock === false || item.in_stock === "0" || item.in_stock === 0 || availability === "out_of_stock" || availability === "not_available")) {
     const key = product.id;
     const stores = outOfStock.get(key) || new Set();
     stores.add(store.trim());
