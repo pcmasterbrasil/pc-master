@@ -60,12 +60,14 @@ footer{text-align:center;padding:25px;color:#8fa4bf}
 <button onclick="buildPC()">GERAR MINHA CONFIGURAÇÃO</button>
 </section>
 
-<section class="card result" id="result">
-<h2>Configurações encontradas</h2>
+<section class="card result" id="result" aria-live="polite">
+<h2>Suas configurações</h2>
 <p id="summary"></p>
+<p class="small" id="progress"></p>
 <div id="parts"></div>
 <p class="small" id="advice"></p>
-<button onclick="window.print()">SALVAR / IMPRIMIR CONFIGURAÇÃO</button>
+<button id="next-build" onclick="showNextBuild()" style="display:none">GERAR OUTRA CONFIGURAÇÃO</button>
+<button id="print-build" onclick="window.print()" style="display:none">SALVAR / IMPRIMIR CONFIGURAÇÃO</button>
 </section>
 
 <section class="card">
@@ -89,30 +91,70 @@ function updatePriceStatus(catalog){
 }
 fetch('catalogo.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error('Catálogo indisponível');return response.json();}).then(updatePriceStatus).catch(()=>{const status=document.getElementById('price-status');if(status)status.textContent='Não foi possível consultar a atualização do catálogo agora.';});
 
+let availableBuilds=[];
+let currentBuildIndex=-1;
+
+function renderBuild(build,index){
+ const partsBox=document.getElementById('parts');
+ partsBox.textContent='';
+ const card=document.createElement('div');card.className='part';
+ const h=document.createElement('h3');
+ h.textContent='Configuração '+(index+1)+' — '+build.total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+ card.appendChild(h);
+ build.parts.forEach(product=>{
+  const offer=product.selectedOffer||window.PCMaster.offersFor(product)[0];
+  const p=document.createElement('p');
+  p.textContent=product.category.toUpperCase()+': '+(product.brand||'')+' '+product.model+' — '+Number(offer.price).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · '+(offer.store||'Loja')+' · consulta: '+new Date(offer.checkedAtTime||offer.checkedAt).toLocaleDateString('pt-BR')+' ';
+  const a=document.createElement('a');a.href=offer.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Ver oferta';p.appendChild(a);card.appendChild(p);
+ });
+ partsBox.appendChild(card);
+ document.getElementById('progress').textContent='Configuração '+(index+1)+' de '+availableBuilds.length+' configurações encontradas para estes critérios.';
+ document.getElementById('advice').textContent='Ofertas consultadas nos últimos 7 dias. Confirme preço e estoque na loja antes de comprar.';
+ document.getElementById('next-build').style.display='block';
+ document.getElementById('next-build').disabled=false;
+ document.getElementById('next-build').textContent='GERAR OUTRA CONFIGURAÇÃO';
+ document.getElementById('print-build').style.display='block';
+}
+
+function showNextBuild(){
+ if(currentBuildIndex+1>=availableBuilds.length){
+  const message=document.createElement('div');message.className='part';
+  message.textContent='Você chegou ao máximo de configurações encontradas para este orçamento, finalidade e prioridade. Altere algum critério para descobrir outras combinações.';
+  document.getElementById('parts').appendChild(message);
+  document.getElementById('progress').textContent='Todas as '+availableBuilds.length+' configurações encontradas já foram exibidas.';
+  const button=document.getElementById('next-build');button.disabled=true;button.textContent='MÁXIMO DE CONFIGURAÇÕES ATINGIDO';
+  return;
+ }
+ currentBuildIndex++;
+ renderBuild(availableBuilds[currentBuildIndex],currentBuildIndex);
+}
+
 async function buildPC(){
  const budget=Number(document.getElementById('budget').value);
  const purpose=document.getElementById('purpose').value;
  const priority=document.getElementById('priority').value;
  if(!Number.isFinite(budget)||budget<1000){alert('Informe um orçamento de pelo menos R$ 1.000.');return;}
- const result=document.getElementById('result'), partsBox=document.getElementById('parts');
- const summary=document.getElementById('summary'), advice=document.getElementById('advice');
- result.style.display='block';summary.textContent='Consultando catálogo e verificando compatibilidade...';partsBox.textContent='';advice.textContent='';
+ const result=document.getElementById('result');
+ const summary=document.getElementById('summary');
+ const advice=document.getElementById('advice');
+ result.style.display='block';summary.textContent='Consultando catálogo e verificando compatibilidade...';
+ document.getElementById('parts').textContent='';
+ document.getElementById('progress').textContent='';
+ document.getElementById('next-build').style.display='none';
+ document.getElementById('print-build').style.display='none';
  try{
   const response=await fetch('catalogo.json',{cache:'no-store'});if(!response.ok)throw new Error('Não foi possível carregar o catálogo.');
-  const catalog=await response.json();
-  updatePriceStatus(catalog);
-  const builds=window.PCMaster.generate(catalog,budget,purpose,priority);
-  summary.textContent='Orçamento: '+budget.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · Finalidade: '+({games:'Jogos',work:'Trabalho e estudos',editing:'Edição'}[purpose])+' · Prioridade: '+({balance:'Equilíbrio',performance:'Desempenho',economy:'Economia'}[priority])+' · '+builds.length+' configurações encontradas';
-  if(!builds.length){
-   const empty=document.createElement('div');empty.className='part';empty.textContent='Ainda não há peças com ofertas verificadas suficientes para montar uma configuração válida. Estamos preparando o catálogo de produtos novos vendidos no Brasil. Nenhum modelo, preço ou link será inventado.';partsBox.appendChild(empty);
+  const catalog=await response.json();updatePriceStatus(catalog);
+  availableBuilds=window.PCMaster.generate(catalog,budget,purpose,priority);
+  currentBuildIndex=-1;
+  summary.textContent='Orçamento: '+budget.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · Finalidade: '+({games:'Jogos',work:'Trabalho e estudos',editing:'Edição'}[purpose])+' · Prioridade: '+({balance:'Equilíbrio',performance:'Desempenho',economy:'Economia'}[priority])+' · '+availableBuilds.length+' configurações encontradas';
+  if(!availableBuilds.length){
+   const empty=document.createElement('div');empty.className='part';
+   empty.textContent='Ainda não há peças com ofertas verificadas suficientes para montar uma configuração válida. Estamos preparando o catálogo de produtos novos vendidos no Brasil. Nenhum modelo, preço ou link será inventado.';
+   document.getElementById('parts').appendChild(empty);
    advice.textContent='Quando houver peças e ofertas compatíveis, o PC MASTER exibirá as combinações disponíveis dentro do orçamento.';
   }else{
-   builds.forEach((build,index)=>{
-    const card=document.createElement('div');card.className='part';const h=document.createElement('h3');h.textContent='Configuração '+(index+1)+' — '+build.total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});card.appendChild(h);
-    build.parts.forEach(product=>{const offer=product.selectedOffer||window.PCMaster.offersFor(product)[0];const p=document.createElement('p');p.textContent=product.category.toUpperCase()+': '+(product.brand||'')+' '+product.model+' — '+Number(offer.price).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · '+(offer.store||'Loja')+' · consulta: '+new Date(offer.checkedAtTime||offer.checkedAt).toLocaleDateString('pt-BR')+' ';const a=document.createElement('a');a.href=offer.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Ver oferta';p.appendChild(a);card.appendChild(p);});
-    partsBox.appendChild(card);
-   });
-   advice.textContent='Ofertas do catálogo consultadas nos últimos 7 dias. Confirme preço e estoque na loja antes de comprar.';
+   showNextBuild();
   }
   result.scrollIntoView({behavior:'smooth'});
  }catch(error){summary.textContent='Não foi possível gerar as configurações.';advice.textContent=error.message;}
