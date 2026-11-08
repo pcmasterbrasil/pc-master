@@ -366,6 +366,27 @@
         "16GB 3200 DDR4 1.2V"
       ],
       "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "amd-ryzen-5-5600-100-100000927box",
+      "brand": "AMD",
+      "model": "Ryzen 5 5600 (100-100000927BOX)",
+      "category": "cpu",
+      "specs": {
+        "socket": "AM4",
+        "tdpW": 65,
+        "memoryType": "DDR4",
+        "memorySpeedMhz": 3200,
+        "coolerIncluded": true,
+        "integratedGraphics": false
+      },
+      "researchStatus": "candidate_price_observed_stock_not_confirmed",
+      "offers": [],
+      "identifiers": [
+        "100-100000927BOX"
+      ],
+      "specSource": "https://www.pichau.com.br/processador-amd-ryzen-5-5600-6-core-12-threads-3-5ghz-4-4ghz-turbo-cache-35mb-am4-100-100000927box",
+      "specsVerifiedAt": "2026-11-08"
     }
   ],
   "offers": [],
@@ -377,9 +398,19 @@
     "Dados técnicos de CPU, placa-mãe e fonte conferidos nas páginas oficiais dos fabricantes. O suporte de BIOS deve ser conferido pela revisão exata da placa antes da compra.",
     "Intel Core i5-12400F e placa-mãe Biostar H610MHP 2.0 adicionados com ofertas diretas TerabyteShop conferidas em 2026-11-08; a plataforma Intel agora tem CPU e placa-mãe LGA1700/DDR4 validadas no catálogo.",
     "Fonte MSI MAG A650BNL, SSD Kingston NV3 500GB e gabinete BRX Blazer CA-033 adicionados com ofertas diretas TerabyteShop conferidas em 2026-11-08. O SSD PCIe 4.0 pode operar em slot NVMe PCIe 3.0 x4 com a velocidade limitada pela placa-mãe.",
-    "Memória Synex DDR4 16GB 3200MHz adicionada com estoque confirmado em 2026-11-08; é um único módulo, portanto oferece capacidade de 16GB em single-channel. Kits 2x8GB permanecem candidatos até confirmação de estoque."
+    "Memória Synex DDR4 16GB 3200MHz adicionada com estoque confirmado em 2026-11-08; é um único módulo, portanto oferece capacidade de 16GB em single-channel. Kits 2x8GB permanecem candidatos até confirmação de estoque.",
+    "Ryzen 5 5600 (100-100000927BOX) cadastrado como candidato técnico; preço à vista de R$ 849,99 observado na Pichau em 2026-11-08, mas sem confirmação explícita de estoque. Não participa do gerador até validação da disponibilidade."
   ],
   "researchQueue": [
+    {
+      "productId": "amd-ryzen-5-5600-100-100000927box",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/processador-amd-ryzen-5-5600-6-core-12-threads-3-5ghz-4-4ghz-turbo-cache-35mb-am4-100-100000927box",
+      "observedPrice": 849.99,
+      "observedPriceAt": "2026-11-08",
+      "stockConfirmed": false,
+      "note": "Página direta confirma Ryzen 5 5600, SKU 100-100000927BOX, AM4, 6 núcleos/12 threads, DDR4-3200, cooler Wraith Stealth e TDP 65W. Preço exibido: R$ 849,99 no Pix e R$ 999,99 no cartão. Página consultada não expôs confirmação explícita de estoque; manter fora das ofertas até confirmar disponibilidade."
+    },
     {
       "productId": "gigabyte-b550m-ds3h-r2",
       "source": "Pichau",
