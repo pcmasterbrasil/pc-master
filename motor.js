@@ -3,6 +3,8 @@
 const PCMaster = (() => {
   const REQUIRED = ["cpu", "motherboard", "ram", "storage", "psu", "case"];
   const MAX_BUILDS = 60;
+  const MAX_CANDIDATE_BUILDS = 5000;
+  const MAX_SEARCH_NODES = 100000;
   const MAX_OFFER_AGE_DAYS = 7;
 
   const daysOld = date => {
@@ -85,10 +87,12 @@ const PCMaster = (() => {
     const order = categories;
     const chosen = {};
     const results = [];
+    let visitedNodes = 0;
     const partialCost = () => Object.values(chosen).reduce((sum, item) => sum + Number(item.offer.price), 0);
 
     const walk = index => {
-      if (results.length >= MAX_BUILDS) return;
+      if (results.length >= MAX_CANDIDATE_BUILDS || visitedNodes >= MAX_SEARCH_NODES) return;
+      visitedNodes++;
       if (index === order.length) {
         if (!compatible(chosen)) return;
         const parts = Object.entries(chosen).map(([category, item]) => ({
@@ -110,17 +114,17 @@ const PCMaster = (() => {
       if (category === "gpu" && purpose === "work" &&
           chosen.cpu?.product.specs?.integratedGraphics === true) {
         walk(index + 1);
-        if (results.length >= MAX_BUILDS) return;
+        if (results.length >= MAX_CANDIDATE_BUILDS || visitedNodes >= MAX_SEARCH_NODES) return;
       }
       if (category === "cooler" && chosen.cpu?.product.specs?.coolerIncluded !== false) {
         walk(index + 1);
-        if (results.length >= MAX_BUILDS) return;
+        if (results.length >= MAX_CANDIDATE_BUILDS || visitedNodes >= MAX_SEARCH_NODES) return;
       }
       for (const option of groups[category] || []) {
         chosen[category] = option;
         if (partialCost() <= budget) walk(index + 1);
         delete chosen[category];
-        if (results.length >= MAX_BUILDS) break;
+        if (results.length >= MAX_CANDIDATE_BUILDS || visitedNodes >= MAX_SEARCH_NODES) break;
       }
     };
 
@@ -128,10 +132,10 @@ const PCMaster = (() => {
     results.sort((a, b) => priority === "performance"
       ? (b.performanceScore - a.performanceScore) || (b.total - a.total)
       : b.score - a.score);
-    return results;
+    return results.slice(0, MAX_BUILDS);
   }
 
-  return { generate, offersFor, MAX_BUILDS, MAX_OFFER_AGE_DAYS };
+  return { generate, offersFor, MAX_BUILDS, MAX_OFFER_AGE_DAYS, MAX_SEARCH_NODES };
 })();
 
 if (typeof window !== "undefined") window.PCMaster = PCMaster;
