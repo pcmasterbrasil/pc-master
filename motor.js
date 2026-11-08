@@ -99,9 +99,11 @@ const PCMaster = (() => {
         }));
         const total = partialCost();
         if (total > budget) return;
-        const score = priority === "performance" ? total :
-          priority === "economy" ? -total : -Math.abs(budget - total);
-        results.push({ parts, total, score });
+        const performanceScore = parts.reduce((sum, part) =>
+          sum + Number(part.specs?.performanceScore || 0), 0);
+        const score = priority === "economy" ? -total :
+          priority === "balance" ? -Math.abs(budget - total) : performanceScore;
+        results.push({ parts, total, score, performanceScore });
         return;
       }
       const category = order[index];
@@ -123,7 +125,9 @@ const PCMaster = (() => {
     };
 
     walk(0);
-    results.sort((a, b) => b.score - a.score);
+    results.sort((a, b) => priority === "performance"
+      ? (b.performanceScore - a.performanceScore) || (b.total - a.total)
+      : b.score - a.score);
     return results;
   }
 
