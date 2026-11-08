@@ -38,6 +38,19 @@ const today = now.toISOString().slice(0, 10);
 const accepted = new Map();
 const outOfStock = new Map();
 const rejected = [];
+const flattenFeedRecord = value => {
+  const flat = {};
+  const visit = object => {
+    if (!object || typeof object !== "object" || Array.isArray(object)) return;
+    for (const [key, child] of Object.entries(object)) {
+      if (child && typeof child === "object" && !Array.isArray(child)) visit(child);
+      else if (child !== undefined && child !== null) flat[key] = child;
+    }
+  };
+  visit(value);
+  return flat;
+};
+
 const parsePrice = value => {
   if (typeof value === "number") return value;
   let text = String(value || "").trim().replace(/[^0-9,.-]/g, "");
@@ -52,7 +65,24 @@ const parsePrice = value => {
   return Number.isFinite(price) ? price : NaN;
 };
 
-for (const item of feedOffers) {
+for (const original of feedOffers) {
+  // Awin Enhanced/Google JSONL pode organizar os campos em seções aninhadas
+  // (por exemplo, product_basic e meta); feeds simples podem continuar planos.
+  const flat = flattenFeedRecord(original);
+  const isAwinFeed = Boolean(process.env.PCMASTER_AWIN_FEED_URL);
+  const item = {
+    ...flat,
+    productId: flat.productId,
+    mpn: flat.mpn,
+    gtin: flat.gtin || flat.product_GTIN,
+    store: flat.store || flat.merchant || flat.advertiser || flat.advertiser_name || process.env.PCMASTER_AWIN_STORE_NAME,
+    price: flat.price,
+    currency: flat.currency || (typeof flat.price === "string" ? flat.price.trim().split(/\\s+/).pop() : undefined),
+    url: flat.aw_deep_link || flat.deep_link || flat.link || flat.url,
+    condition: flat.condition,
+    availability: flat.availability,
+    inStock: flat.inStock
+  };
   let product = known.get(item.productId);
   if (!product) {
     const identifier = [item.mpn, item.gtin, item.product_GTIN, item.id].find(v => v && byIdentifier.has(String(v).toLowerCase()));
