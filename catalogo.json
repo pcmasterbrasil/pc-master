@@ -614,6 +614,29 @@
         "SDSP51500GAN-000E0"
       ],
       "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "asus-radeon-rx-6600-dual-v2-8gb-dual-rx6600-8g-v2",
+      "brand": "ASUS",
+      "model": "Dual Radeon RX 6600 V2 8GB GDDR6 (DUAL-RX6600-8G-V2)",
+      "category": "gpu",
+      "specs": {
+        "vramGb": 8,
+        "memoryType": "GDDR6",
+        "busWidthBit": 128,
+        "interface": "PCIe 4.0",
+        "powerConnectors": [
+          "1x PCIe 8-pin"
+        ],
+        "lengthMm": 243
+      },
+      "researchStatus": "candidate_price_observed_stock_and_new_condition_recheck",
+      "offers": [],
+      "identifiers": [
+        "DUAL-RX6600-8G-V2"
+      ],
+      "specSource": "https://www.pichau.com.br/placa-de-video-asus-radeon-rx-6600-dual-v2-8gb-gddr6-128-bit-dual-rx6600-8g-v2",
+      "specsVerifiedAt": "2026-11-08"
     }
   ],
   "offers": [],
@@ -635,7 +658,8 @@
     "Dois kits de memória DDR4 16GB (2x8GB) adicionados como candidatos em 2026-11-08: Apacer NOX CL16 (R$ 289,99 Pix observado na Pichau) e Mancer Dantalion Z CL16 (R$ 269,99 Pix observado na Pichau). Ambos aguardam confirmação explícita de estoque e condição nova; ainda não entram no gerador.",
     "Memória Rise Mode Z Series 16GB DDR4-3200 (RM-D4-16G-3200Z) adicionada com oferta TerabyteShop consultada em 2026-11-08: R$ 719,99 à vista, produto novo, pronta entrega e 87 unidades restantes. Módulo único de 16GB; não é kit dual-channel.",
     "Placa-mãe MSI PRO H610M-S DDR4 adicionada com oferta TerabyteShop de R$ 499,99 à vista, produto novo, pronta entrega e 11 unidades restantes consultadas em 2026-11-08. Especificações DDR4/LGA1700/mATX e suporte a CPUs Intel Core de 12ª geração conferidos no fabricante; cadastrada com compatibilidade explícita ao i5-12400F.",
-    "SSD SanDisk Optimus 5100 500GB NVMe PCIe 4.0 adicionado com oferta TerabyteShop de R$ 899,90 à vista, produto novo, pronta entrega e 1 unidade restante consultadas em 2026-11-08. O SSD PCIe 4.0 é retrocompatível com slots NVMe PCIe 3.0 x4, operando limitado à velocidade do slot."
+    "SSD SanDisk Optimus 5100 500GB NVMe PCIe 4.0 adicionado com oferta TerabyteShop de R$ 899,90 à vista, produto novo, pronta entrega e 1 unidade restante consultadas em 2026-11-08. O SSD PCIe 4.0 é retrocompatível com slots NVMe PCIe 3.0 x4, operando limitado à velocidade do slot.",
+    "ASUS Dual Radeon RX 6600 V2 8GB (DUAL-RX6600-8G-V2) adicionada como candidata em 2026-11-08. Pichau exibiu R$ 1.559,99 no Pix e especificações detalhadas, mas não foi possível confirmar estoque e condição nova; não participa do gerador até validação."
   ],
   "researchQueue": [
     {
@@ -737,6 +761,16 @@
       "observedPriceAt": "2026-11-08",
       "stockConfirmed": false,
       "note": "Página de produto confirma kit 16GB (2x8GB), DDR4-3200 CL16, SKU MCR-DTLZ2X8C16-16GB e preço de R$ 269,99 no Pix. Conteúdo acessível não confirmou estoque; não ativar oferta até confirmar disponibilidade, condição nova e preço."
+    },
+    {
+      "productId": "asus-radeon-rx-6600-dual-v2-8gb-dual-rx6600-8g-v2",
+      "category": "gpu",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/placa-de-video-asus-radeon-rx-6600-dual-v2-8gb-gdd6-128-bit-dual-rx6600-8g-v2",
+      "observedPrice": 1559.99,
+      "observedPriceAt": "2026-11-08",
+      "stockConfirmed": false,
+      "note": "Página direta consultada em 2026-11-08 confirma ASUS Dual Radeon RX 6600 V2, SKU DUAL-RX6600-8G-V2, 8GB GDDR6, 128-bit, PCIe 4.0, conector 8-pin e dimensões 243 x 134 x 49 mm. Preço exibido R$ 1.559,99 no Pix; a página não apresentou confirmação explícita de estoque nem condição nova. Manter fora do gerador até validar disponibilidade e condição."
     }
   ]
 }
