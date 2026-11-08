@@ -2,9 +2,9 @@
    Não recomenda preços vencidos, itens usados ou combinações incompatíveis. */
 const PCMaster = (() => {
   const REQUIRED = ["cpu", "motherboard", "ram", "storage", "psu", "case"];
-  const MAX_BUILDS = 200;
-  const MAX_CANDIDATE_BUILDS = 25000;
-  const MAX_SEARCH_NODES = 250000;
+  const MAX_BUILDS = 30;
+  const MAX_CANDIDATE_BUILDS = 3000;
+  const MAX_SEARCH_NODES = 50000;
   const MAX_OFFER_AGE_DAYS = 7;
 
   const daysOld = date => {
@@ -91,7 +91,6 @@ const PCMaster = (() => {
     if (needsDiscreteGpu || purpose === "work" || (groups.gpu || []).length) categories.push("gpu");
     if ((groups.cooler || []).length) categories.push("cooler");
 
-    // Mantém CPU antes de GPU/cooler, pois as decisões dessas peças dependem do processador escolhido.
     const order = categories;
     const chosen = {};
     const results = [];
@@ -102,7 +101,6 @@ const PCMaster = (() => {
       if (results.length >= MAX_CANDIDATE_BUILDS || visitedNodes >= MAX_SEARCH_NODES) return;
       visitedNodes++;
       if (index === order.length) {
-        // Um PC sem GPU dedicada só pode ser montado se o processador tiver vídeo integrado.
         if (!chosen.gpu && chosen.cpu?.product.specs?.integratedGraphics !== true) return;
         if (!compatible(chosen)) return;
         const parts = Object.entries(chosen).map(([category, item]) => ({
