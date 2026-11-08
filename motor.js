@@ -48,7 +48,7 @@ const PCMaster = (() => {
         const match = text.match(/(\d+)\s*x/);
         return sum + (match ? Number(match[1]) : 1);
       }, 0);
-      if (countPcie8(powerConnectors(ps)) < countPcie8(gpu.specs.powerConnectors)) return false;
+      if (countPcie8(powerConnectors(psu)) < countPcie8(gpu.specs.powerConnectors)) return false;
     }
     if (cooler) {
       if (cooler.specs?.sockets && !cooler.specs.sockets.includes(cs.socket)) return false;
