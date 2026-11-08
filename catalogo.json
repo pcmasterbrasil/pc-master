@@ -425,7 +425,8 @@
         "B550M-A-PRO"
       ],
       "specSource": "https://br.msi.com/Motherboard/B550M-A-PRO/Specification",
-      "specsVerifiedAt": "2026-11-08"
+      "specsVerifiedAt": "2026-11-08",
+      "compatibilityNotes": "Confirme com a loja a versão de BIOS instalada e o suporte ao Ryzen 5 5500 antes da compra."
     }
   ],
   "offers": [],
