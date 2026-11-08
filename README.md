@@ -17,7 +17,7 @@ https://pcmasterbrasil.github.io/pc-master/
 
 ## Regras de recomendação
 
-O gerador só considera ofertas com preço positivo, URL HTTPS, produto novo, estoque confirmado e consulta feita nos últimos 7 dias. Ele limita o resultado a 60 configurações e rejeita combinações incompatíveis com os dados técnicos cadastrados.
+O gerador só considera ofertas com preço positivo, URL HTTPS, produto novo, estoque confirmado e consulta feita nos últimos 7 dias. Ele limita o resultado a até 200 configurações e rejeita combinações incompatíveis com os dados técnicos cadastrados.
 
 O catálogo atual ainda está em construção. Produtos sem oferta validada não aparecem nas recomendações. Não publique nem venda o serviço como pronto antes de ampliar o catálogo e concluir testes reais de montagem.
 
