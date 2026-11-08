@@ -36,7 +36,8 @@ const PCMaster = (() => {
     const ss = storage.specs || {}, ps = psu.specs || {}, ks = box.specs || {};
     if (!cs.socket || cs.socket !== bs.socket) return false;
     if (bs.supportedCpuIds && !bs.supportedCpuIds.includes(cpu.id)) return false;
-    if (!cs.memoryType || cs.memoryType !== bs.memoryType || rs.memoryType !== bs.memoryType) return false;
+    const cpuMemoryTypes = Array.isArray(cs.memoryTypes) ? cs.memoryTypes : [cs.memoryType].filter(Boolean);
+    if (!cpuMemoryTypes.includes(bs.memoryType) || rs.memoryType !== bs.memoryType) return false;
     if (!Number.isFinite(Number(rs.capacityGb)) || Number(rs.capacityGb) <= 0) return false;
     if (bs.maxMemoryGb && rs.capacityGb > bs.maxMemoryGb) return false;
     if (bs.memorySlots && rs.modules && rs.modules > bs.memorySlots) return false;
