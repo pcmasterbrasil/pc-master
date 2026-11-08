@@ -216,6 +216,40 @@
       "identifiers": ["BX8071512400F"],
       "specSource": "https://www.intel.com.br/content/www/br/pt/products/sku/134587/intel-core-i512400f-processor-18m-cache-up-to-4-40-ghz/specifications.html",
       "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "biostar-h610mhp-2-0-ih61umds",
+      "brand": "Biostar",
+      "model": "H610MHP 2.0 (IH61UMDS)",
+      "category": "motherboard",
+      "specs": {
+        "socket": "LGA1700",
+        "memoryType": "DDR4",
+        "formFactor": "mATX",
+        "estimatedW": 50,
+        "m2Slots": 1,
+        "maxMemoryGb": 64,
+        "memorySlots": 2,
+        "maxMemorySpeedMhz": 3200,
+        "storageInterfaces": ["NVMe PCIe 3.0 x4"],
+        "supportedCpuIds": ["intel-core-i5-12400f-bx8071512400f"]
+      },
+      "researchStatus": "validated_offer",
+      "offers": [
+        {
+          "store": "TerabyteShop",
+          "price": 449.99,
+          "currency": "BRL",
+          "url": "https://www.terabyteshop.com.br/produto/43671/placa-mae-biostar-h610mhp-20-chipset-h610-intel-lga-1700-matx-ddr4",
+          "checkedAt": "2026-11-08",
+          "condition": "new",
+          "inStock": true,
+          "paymentNote": "R$ 449,99 à vista no Pix; página indicava pronta entrega e estoque restante."
+        }
+      ],
+      "identifiers": ["IH61UMDS", "H610MHP 2.0"],
+      "specSource": "https://www.biostar.com.tw/app/en/mb/export/spec_export.php?S_ID=1139",
+      "specsVerifiedAt": "2026-11-08"
     }
   ],
   "offers": [],
@@ -225,7 +259,7 @@
     "O catálogo é incremental: candidatos sem oferta validada ficam fora das combinações.",
     "GPU adicionada: PCYES RTX 4060 8GB Dual Fan, código PVR40608GR6DF2. Página da TerabyteShop indica produto novo, pronta entrega, preço à vista de R$ 2.749,90 e dimensões de 216 mm; validar novamente antes de cada compra.",
     "Dados técnicos de CPU, placa-mãe e fonte conferidos nas páginas oficiais dos fabricantes. O suporte de BIOS deve ser conferido pela revisão exata da placa antes da compra.",
-    "Intel Core i5-12400F adicionado com oferta direta TerabyteShop conferida em 2026-11-08; ele suporta DDR4 ou DDR5 conforme a placa-mãe, mas ainda depende de placa LGA1700 validada no catálogo para gerar builds Intel."
+    "Intel Core i5-12400F e placa-mãe Biostar H610MHP 2.0 adicionados com ofertas diretas TerabyteShop conferidas em 2026-11-08; a plataforma Intel agora tem CPU e placa-mãe LGA1700/DDR4 validadas no catálogo."
   ],
   "researchQueue": [
     {
