@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "currency": "BRL",
+  "market": "BR",
+  "policy": {
+    "newProductsOnly": true,
+    "requireExactModel": true,
+    "requireCompatibilityData": true,
+    "requireOfferUrl": true,
+    "requirePriceCheckedAt": true,
+    "neverInventPriceOrStock": true
+  },
+  "categories": [
+    "cpu",
+    "motherboard",
+    "gpu",
+    "ram",
+    "storage",
+    "psu",
+    "case",
+    "cooler"
+  ],
+  "products": [],
+  "offers": [],
+  "notes": [
+    "O catálogo começa vazio intencionalmente: nenhum componente será recomendado como comprável sem modelo exato, dados técnicos, oferta verificável e data de consulta.",
+    "Cada produto pode ter várias ofertas de lojas brasileiras; preços e estoque precisam ser revalidados antes de exibir a recomendação."
+  ]
+}
