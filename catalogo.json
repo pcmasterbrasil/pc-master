@@ -336,6 +336,36 @@
         "CA-033"
       ],
       "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "synex-16gb-ddr4-3200",
+      "brand": "Synex",
+      "model": "DDR4 16GB 3200MHz 1.2V",
+      "category": "ram",
+      "specs": {
+        "memoryType": "DDR4",
+        "capacityGb": 16,
+        "modules": 1,
+        "speedMhz": 3200,
+        "estimatedW": 5
+      },
+      "researchStatus": "validated_offer",
+      "offers": [
+        {
+          "store": "TerabyteShop",
+          "price": 729.99,
+          "currency": "BRL",
+          "url": "https://www.terabyteshop.com.br/produto/42526/memoria-ddr4-synex-16gb-3200mhz-preto",
+          "checkedAt": "2026-11-08",
+          "condition": "new",
+          "inStock": true,
+          "paymentNote": "R$ 729,99 à vista no Pix/boleto; página indicava pronta entrega e 1 unidade restante. Módulo único de 16GB."
+        }
+      ],
+      "identifiers": [
+        "16GB 3200 DDR4 1.2V"
+      ],
+      "specsVerifiedAt": "2026-11-08"
     }
   ],
   "offers": [],
@@ -346,7 +376,8 @@
     "GPU adicionada: PCYES RTX 4060 8GB Dual Fan, código PVR40608GR6DF2. Página da TerabyteShop indica produto novo, pronta entrega, preço à vista de R$ 2.749,90 e dimensões de 216 mm; validar novamente antes de cada compra.",
     "Dados técnicos de CPU, placa-mãe e fonte conferidos nas páginas oficiais dos fabricantes. O suporte de BIOS deve ser conferido pela revisão exata da placa antes da compra.",
     "Intel Core i5-12400F e placa-mãe Biostar H610MHP 2.0 adicionados com ofertas diretas TerabyteShop conferidas em 2026-11-08; a plataforma Intel agora tem CPU e placa-mãe LGA1700/DDR4 validadas no catálogo.",
-    "Fonte MSI MAG A650BNL, SSD Kingston NV3 500GB e gabinete BRX Blazer CA-033 adicionados com ofertas diretas TerabyteShop conferidas em 2026-11-08. O SSD PCIe 4.0 pode operar em slot NVMe PCIe 3.0 x4 com a velocidade limitada pela placa-mãe."
+    "Fonte MSI MAG A650BNL, SSD Kingston NV3 500GB e gabinete BRX Blazer CA-033 adicionados com ofertas diretas TerabyteShop conferidas em 2026-11-08. O SSD PCIe 4.0 pode operar em slot NVMe PCIe 3.0 x4 com a velocidade limitada pela placa-mãe.",
+    "Memória Synex DDR4 16GB 3200MHz adicionada com estoque confirmado em 2026-11-08; é um único módulo, portanto oferece capacidade de 16GB em single-channel. Kits 2x8GB permanecem candidatos até confirmação de estoque."
   ],
   "researchQueue": [
     {
