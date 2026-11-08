@@ -64,4 +64,25 @@ officeWithoutIntegratedGraphics[0].specs.integratedGraphics = false;
 assert.equal(PCMaster.generate({ products: officeWithoutIntegratedGraphics }, 2500, "work", "economy").length, 0,
   "não deve montar PC sem GPU quando o processador não tem vídeo integrado");
 
+
+const wrongBoardCpuSupport = structuredClone(base);
+wrongBoardCpuSupport.find(p => p.category === "motherboard").specs.supportedCpuIds = ["outro-processador"];
+assert.equal(PCMaster.generate({ products: wrongBoardCpuSupport }, 4000, "games", "balance").length, 0,
+  "deve rejeitar CPU fora da lista explícita de suporte da placa-mãe");
+
+const unknownCaseFormFactor = structuredClone(base);
+delete unknownCaseFormFactor.find(p => p.category === "case").specs.formFactors;
+assert.equal(PCMaster.generate({ products: unknownCaseFormFactor }, 4000, "games", "balance").length, 0,
+  "deve rejeitar gabinete sem dados suficientes de formato compatível");
+
+const unsupportedStorage = structuredClone(base);
+unsupportedStorage.find(p => p.category === "motherboard").specs.storageInterfaces = [];
+assert.equal(PCMaster.generate({ products: unsupportedStorage }, 4000, "games", "balance").length, 0,
+  "deve rejeitar armazenamento sem interface confirmada na placa-mãe");
+
+const unknownCpuCooler = structuredClone(base);
+delete unknownCpuCooler[0].specs.coolerIncluded;
+assert.equal(PCMaster.generate({ products: unknownCpuCooler }, 4000, "games", "balance").length, 0,
+  "deve exigir confirmação de cooler incluso ou cooler adicional");
+
 console.log("Testes PC MASTER: todos passaram.");
