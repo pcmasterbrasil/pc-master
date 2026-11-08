@@ -2,9 +2,9 @@
    Não recomenda preços vencidos, itens usados ou combinações incompatíveis. */
 const PCMaster = (() => {
   const REQUIRED = ["cpu", "motherboard", "ram", "storage", "psu", "case"];
-  const MAX_BUILDS = 60;
-  const MAX_CANDIDATE_BUILDS = 5000;
-  const MAX_SEARCH_NODES = 100000;
+  const MAX_BUILDS = 200;
+  const MAX_CANDIDATE_BUILDS = 25000;
+  const MAX_SEARCH_NODES = 250000;
   const MAX_OFFER_AGE_DAYS = 7;
 
   const daysOld = date => {
