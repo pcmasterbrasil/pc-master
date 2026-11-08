@@ -515,6 +515,36 @@
       "identifiers": [
         "MCR-DTLZ2X8C16-16GB"
       ]
+    },
+    {
+      "id": "rise-mode-z-16gb-ddr4-3200-rm-d4-16g-3200z",
+      "brand": "Rise Mode",
+      "model": "Z Series 16GB DDR4-3200 (RM-D4-16G-3200Z)",
+      "category": "ram",
+      "specs": {
+        "memoryType": "DDR4",
+        "capacityGb": 16,
+        "modules": 1,
+        "speedMhz": 3200,
+        "estimatedW": 5
+      },
+      "researchStatus": "validated_offer",
+      "offers": [
+        {
+          "store": "TerabyteShop",
+          "price": 719.99,
+          "currency": "BRL",
+          "url": "https://www.terabyteshop.com.br/produto/40282/memoria-ddr4-rise-mode-z-16gb-3200mhz-preto-rm-d4-16g-3200z",
+          "checkedAt": "2026-11-08",
+          "condition": "new",
+          "inStock": true,
+          "paymentNote": "R$ 719,99 à vista no Pix/boleto; página indicava produto novo, pronta entrega e 87 unidades restantes."
+        }
+      ],
+      "identifiers": [
+        "RM-D4-16G-3200Z"
+      ],
+      "specsVerifiedAt": "2026-11-08"
     }
   ],
   "offers": [],
@@ -533,7 +563,8 @@
     "Compatibilidade de BIOS refinada: a lista de CPUs compatíveis da MSI reproduzida pela Pangoly indica BIOS 7C96v27 como mínima para Ryzen 5 5500 na B550M-A PRO. Confirmar a versão instalada com a loja antes da compra.",
     "ASRock Radeon RX 7600 Challenger OC 8GB (90-GA41ZZ-00UANF) adicionada como candidata técnica em 2026-11-08. Especificações oficiais ASRock: 8GB GDDR6, 128-bit, PCIe 4.0 x8, 165W, 1x8-pin, PSU recomendado 550W e comprimento 269,2mm. Oferta FGTEC com 5 unidades e R$ 2.616,60 observada, mas condição nova ainda precisa confirmação explícita; não participa do gerador.",
     "ASRock Radeon RX 6600 Challenger D 8GB adicionada como candidata técnica em 2026-11-08, com especificações conferidas na página oficial ASRock. Ainda sem oferta direta validada com condição nova, preço e estoque; não participa do gerador.",
-    "Dois kits de memória DDR4 16GB (2x8GB) adicionados como candidatos em 2026-11-08: Apacer NOX CL16 (R$ 289,99 Pix observado na Pichau) e Mancer Dantalion Z CL16 (R$ 269,99 Pix observado na Pichau). Ambos aguardam confirmação explícita de estoque e condição nova; ainda não entram no gerador."
+    "Dois kits de memória DDR4 16GB (2x8GB) adicionados como candidatos em 2026-11-08: Apacer NOX CL16 (R$ 289,99 Pix observado na Pichau) e Mancer Dantalion Z CL16 (R$ 269,99 Pix observado na Pichau). Ambos aguardam confirmação explícita de estoque e condição nova; ainda não entram no gerador.",
+    "Memória Rise Mode Z Series 16GB DDR4-3200 (RM-D4-16G-3200Z) adicionada com oferta TerabyteShop consultada em 2026-11-08: R$ 719,99 à vista, produto novo, pronta entrega e 87 unidades restantes. Módulo único de 16GB; não é kit dual-channel."
   ],
   "researchQueue": [
     {
