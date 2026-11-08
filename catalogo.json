@@ -128,8 +128,19 @@
           "2x PCIe 6+2-pin"
         ]
       },
-      "researchStatus": "candidate_offer_needs_stock_recheck",
-      "offers": [],
+      "researchStatus": "validated_offer",
+      "offers": [
+        {
+          "store": "TerabyteShop",
+          "price": 299.99,
+          "currency": "BRL",
+          "url": "https://www.terabyteshop.com.br/produto/39233/fonte-msi-mag-a650bnl-650w-80-plus-bronze-pfc-ativo-preto",
+          "checkedAt": "2026-11-08",
+          "condition": "new",
+          "inStock": true,
+          "paymentNote": "R$ 299,99 à vista no Pix/boleto; página indicava pronta entrega e estoque restante."
+        }
+      ],
       "identifiers": [
         "306-7ZPAX39-HH9"
       ],
@@ -196,7 +207,10 @@
       "specs": {
         "socket": "LGA1700",
         "tdpW": 117,
-        "memoryTypes": ["DDR4", "DDR5"],
+        "memoryTypes": [
+          "DDR4",
+          "DDR5"
+        ],
         "coolerIncluded": true,
         "integratedGraphics": false
       },
@@ -213,7 +227,9 @@
           "paymentNote": "R$ 799,99 à vista no Pix/boleto; preço no cartão diferente. Página indicava pronta entrega e estoque restante."
         }
       ],
-      "identifiers": ["BX8071512400F"],
+      "identifiers": [
+        "BX8071512400F"
+      ],
       "specSource": "https://www.intel.com.br/content/www/br/pt/products/sku/134587/intel-core-i512400f-processor-18m-cache-up-to-4-40-ghz/specifications.html",
       "specsVerifiedAt": "2026-11-08"
     },
@@ -231,8 +247,12 @@
         "maxMemoryGb": 64,
         "memorySlots": 2,
         "maxMemorySpeedMhz": 3200,
-        "storageInterfaces": ["NVMe PCIe 3.0 x4"],
-        "supportedCpuIds": ["intel-core-i5-12400f-bx8071512400f"]
+        "storageInterfaces": [
+          "NVMe PCIe 3.0 x4"
+        ],
+        "supportedCpuIds": [
+          "intel-core-i5-12400f-bx8071512400f"
+        ]
       },
       "researchStatus": "validated_offer",
       "offers": [
@@ -247,8 +267,74 @@
           "paymentNote": "R$ 449,99 à vista no Pix; página indicava pronta entrega e estoque restante."
         }
       ],
-      "identifiers": ["IH61UMDS", "H610MHP 2.0"],
+      "identifiers": [
+        "IH61UMDS",
+        "H610MHP 2.0"
+      ],
       "specSource": "https://www.biostar.com.tw/app/en/mb/export/spec_export.php?S_ID=1139",
+      "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "kingston-nv3-500gb-snv3s500g",
+      "brand": "Kingston",
+      "model": "NV3 500GB M.2 2280 NVMe PCIe 4.0 (SNV3S/500G)",
+      "category": "storage",
+      "specs": {
+        "capacityGb": 500,
+        "formFactor": "M.2 2280",
+        "interface": "NVMe PCIe 4.0 x4",
+        "estimatedW": 5
+      },
+      "researchStatus": "validated_offer",
+      "offers": [
+        {
+          "store": "TerabyteShop",
+          "price": 699.9,
+          "currency": "BRL",
+          "url": "https://www.terabyteshop.com.br/produto/31563/ssd-kingston-nv3-500gb-m2-nvme-2280-pcie-40-leitura-5000mbs-e-gravacao-3000mbs-snv3s500g",
+          "checkedAt": "2026-11-08",
+          "condition": "new",
+          "inStock": true,
+          "paymentNote": "R$ 699,90 à vista no Pix/boleto; página indicava pronta entrega e estoque restante."
+        }
+      ],
+      "identifiers": [
+        "SNV3S/500G"
+      ],
+      "specSource": "https://www.kingston.com/br/ssd/nv3-nvme-pcie-ssd",
+      "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "brx-blazer-ca-033",
+      "brand": "BRX",
+      "model": "Blazer CA-033 Mid Tower mATX",
+      "category": "case",
+      "specs": {
+        "formFactors": [
+          "mATX",
+          "Mini-ITX"
+        ],
+        "maxGpuLengthMm": 345,
+        "maxCpuCoolerHeightMm": 165,
+        "psuFormFactor": "ATX"
+      },
+      "researchStatus": "validated_offer",
+      "offers": [
+        {
+          "store": "TerabyteShop",
+          "price": 329.99,
+          "currency": "BRL",
+          "url": "https://www.terabyteshop.com.br/produto/40114/gabinete-gamer-brx-blazer-mid-tower-vidro-temperado-m-atx-sem-fans-preto-ca-033",
+          "checkedAt": "2026-11-08",
+          "condition": "new",
+          "inStock": true,
+          "paymentNote": "R$ 329,99 à vista no Pix/boleto; página indicava pronta entrega e estoque restante."
+        }
+      ],
+      "identifiers": [
+        "GABGBRXCA-033",
+        "CA-033"
+      ],
       "specsVerifiedAt": "2026-11-08"
     }
   ],
@@ -259,7 +345,8 @@
     "O catálogo é incremental: candidatos sem oferta validada ficam fora das combinações.",
     "GPU adicionada: PCYES RTX 4060 8GB Dual Fan, código PVR40608GR6DF2. Página da TerabyteShop indica produto novo, pronta entrega, preço à vista de R$ 2.749,90 e dimensões de 216 mm; validar novamente antes de cada compra.",
     "Dados técnicos de CPU, placa-mãe e fonte conferidos nas páginas oficiais dos fabricantes. O suporte de BIOS deve ser conferido pela revisão exata da placa antes da compra.",
-    "Intel Core i5-12400F e placa-mãe Biostar H610MHP 2.0 adicionados com ofertas diretas TerabyteShop conferidas em 2026-11-08; a plataforma Intel agora tem CPU e placa-mãe LGA1700/DDR4 validadas no catálogo."
+    "Intel Core i5-12400F e placa-mãe Biostar H610MHP 2.0 adicionados com ofertas diretas TerabyteShop conferidas em 2026-11-08; a plataforma Intel agora tem CPU e placa-mãe LGA1700/DDR4 validadas no catálogo.",
+    "Fonte MSI MAG A650BNL, SSD Kingston NV3 500GB e gabinete BRX Blazer CA-033 adicionados com ofertas diretas TerabyteShop conferidas em 2026-11-08. O SSD PCIe 4.0 pode operar em slot NVMe PCIe 3.0 x4 com a velocidade limitada pela placa-mãe."
   ],
   "researchQueue": [
     {
