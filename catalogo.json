@@ -427,6 +427,32 @@
       "specSource": "https://br.msi.com/Motherboard/B550M-A-PRO/Specification",
       "specsVerifiedAt": "2026-11-08",
       "compatibilityNotes": "Para usar o Ryzen 5 5500, confirme com a loja que a placa está com BIOS 7C96v27 ou posterior. A lista de compatibilidade da MSI, reproduzida pela Pangoly, indica essa versão mínima; se necessário, a BIOS deve ser atualizada antes da instalação do processador."
+    },
+    {
+      "id": "asrock-rx-7600-challenger-oc-90-ga41zz-00uanf",
+      "brand": "ASRock",
+      "model": "Radeon RX 7600 Challenger OC 8GB GDDR6 (90-GA41ZZ-00UANF)",
+      "category": "gpu",
+      "specs": {
+        "vramGb": 8,
+        "memoryType": "GDDR6",
+        "busWidthBit": 128,
+        "interface": "PCIe 4.0 x8",
+        "tdpW": 165,
+        "powerConnectors": [
+          "1x PCIe 8-pin"
+        ],
+        "recommendedPsuW": 550,
+        "lengthMm": 269.2
+      },
+      "researchStatus": "candidate_offer_condition_recheck",
+      "offers": [],
+      "identifiers": [
+        "90-GA41ZZ-00UANF",
+        "4710483942037"
+      ],
+      "specSource": "https://www.asrock.com/Graphics-Card/AMD/Radeon%20RX%207600%20Challenger%208GB%20OC/index.br.asp",
+      "specsVerifiedAt": "2026-11-08"
     }
   ],
   "offers": [],
@@ -442,7 +468,8 @@
     "Ryzen 5 5600 (100-100000927BOX) cadastrado como candidato técnico; preço à vista de R$ 849,99 observado na Pichau em 2026-11-08, mas sem confirmação explícita de estoque. Não participa do gerador até validação da disponibilidade.",
     "Placa-mãe MSI B550M-A PRO adicionada com oferta Pichau de R$ 489,99 no Pix e indicação de Produto Disponível consultadas em 2026-11-08. Soquete AM4, DDR4, mATX, 2 slots de memória, até 64GB e 1 slot M.2. Antes da compra, conferir a versão de BIOS exigida pelo Ryzen específico.",
     "Kit Team Group T-Force Elite Plus 16GB (2x8GB) DDR4-3200 teve preço de R$ 299,99 no Pix rechecado na Pichau em 2026-11-08, mas sem confirmação explícita de estoque no conteúdo acessível; permanece fora do gerador.",
-    "Compatibilidade de BIOS refinada: a lista de CPUs compatíveis da MSI reproduzida pela Pangoly indica BIOS 7C96v27 como mínima para Ryzen 5 5500 na B550M-A PRO. Confirmar a versão instalada com a loja antes da compra."
+    "Compatibilidade de BIOS refinada: a lista de CPUs compatíveis da MSI reproduzida pela Pangoly indica BIOS 7C96v27 como mínima para Ryzen 5 5500 na B550M-A PRO. Confirmar a versão instalada com a loja antes da compra.",
+    "ASRock Radeon RX 7600 Challenger OC 8GB (90-GA41ZZ-00UANF) adicionada como candidata técnica em 2026-11-08. Especificações oficiais ASRock: 8GB GDDR6, 128-bit, PCIe 4.0 x8, 165W, 1x8-pin, PSU recomendado 550W e comprimento 269,2mm. Oferta FGTEC com 5 unidades e R$ 2.616,60 observada, mas condição nova ainda precisa confirmação explícita; não participa do gerador."
   ],
   "researchQueue": [
     {
@@ -500,7 +527,12 @@
       "category": "gpu",
       "model": "ASRock Radeon RX 7600 Challenger OC 8GB",
       "source": "KaBuM",
-      "note": "Resultado de produto indica R$ 1.899,99; falta validar página direta, SKU, estoque e preço final antes de publicar."
+      "note": "FGTEC indica em estoque (5 unidades) e preço R$ 2.616,60; ainda confirmar condição explicitamente nova antes de promover para offers. Pichau mostrou o mesmo SKU por R$ 2.599,99 no Pix, mas sem confirmação de estoque no conteúdo acessível. KaBuM listada em comparador por R$ 1.899,99, mas a página direta bloqueou a verificação. Manter fora do gerador por enquanto.",
+      "productId": "asrock-rx-7600-challenger-oc-90-ga41zz-00uanf",
+      "url": "https://www.fgtec.com.br/hardware/placa-de-video-asrock-radeon-rx-7600-challenger-oc-8gb-gdd6-90-ga41zz-00uanf",
+      "observedPrice": 2616.6,
+      "observedPriceAt": "2026-11-08",
+      "stockConfirmed": true
     },
     {
       "category": "gpu",
