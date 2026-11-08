@@ -76,7 +76,8 @@
       "researchStatus": "candidate_specs_confirmed_offer_needs_stock_and_price_recheck",
       "offers": [],
       "identifiers": [
-        "B550M DS3H R2"
+        "B550M DS3H R2",
+        "B550M-DS3H-R2"
       ],
       "specSource": "https://www.gigabyte.com/br/Motherboard/B550M-DS3H-R2/sp",
       "specsVerifiedAt": "2026-11-07"
