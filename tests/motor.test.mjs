@@ -24,6 +24,16 @@ assert.equal(games.length, 1, "deve montar um PC gamer compatível");
 assert.equal(games[0].parts.find(p => p.category === "gpu").selectedOffer.price, 1500);
 assert.ok(games[0].total <= 4000);
 
+const performanceCatalog = structuredClone(base);
+performanceCatalog.find(p => p.category === "gpu").specs.performanceScore = 70;
+const fasterGpu = product("gpu-faster", "gpu", {
+  tdpW: 130, lengthMm: 230, powerConnectors: ["1x PCIe 8-pin"], performanceScore: 95
+}, 1700);
+performanceCatalog.push(fasterGpu);
+const performanceBuilds = PCMaster.generate({ products: performanceCatalog }, 5000, "games", "performance");
+assert.equal(performanceBuilds[0].parts.find(p => p.category === "gpu").id, "gpu-faster",
+  "prioridade desempenho deve respeitar pontuação técnica cadastrada");
+
 const noGpuConnector = structuredClone(base);
 noGpuConnector.find(p => p.category === "psu").specs.pcieConnectors = [];
 assert.equal(PCMaster.generate({ products: noGpuConnector }, 4000, "games", "balance").length, 0,
