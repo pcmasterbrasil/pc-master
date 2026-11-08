@@ -44,6 +44,14 @@ tooLongGpu.find(p => p.category === "case").specs.maxGpuLengthMm = 200;
 assert.equal(PCMaster.generate({ products: tooLongGpu }, 4000, "games", "balance").length, 0,
   "deve rejeitar GPU maior que o espaço do gabinete");
 
+const dualMemoryCpu = structuredClone(base);
+dualMemoryCpu[0].specs.memoryTypes = ["DDR4", "DDR5"];
+delete dualMemoryCpu[0].specs.memoryType;
+dualMemoryCpu.find(p => p.category === "motherboard").specs.memoryType = "DDR5";
+dualMemoryCpu.find(p => p.category === "ram").specs.memoryType = "DDR5";
+assert.equal(PCMaster.generate({ products: dualMemoryCpu }, 4000, "games", "balance").length, 1,
+  "deve aceitar DDR4 ou DDR5 conforme a placa-mãe escolhida quando a CPU suporta ambos");
+
 const wrongMemory = structuredClone(base);
 wrongMemory.find(p => p.category === "ram").specs.memoryType = "DDR5";
 assert.equal(PCMaster.generate({ products: wrongMemory }, 4000, "games", "balance").length, 0,
