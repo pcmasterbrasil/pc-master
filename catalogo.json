@@ -119,13 +119,43 @@
       },
       "researchStatus": "candidate_specs_confirmed_offer_needs_stock_and_price_recheck",
       "offers": []
+    },
+    {
+      "id": "pcyes-rtx-4060-pvr40608gr6df2",
+      "brand": "PCYES",
+      "model": "GeForce RTX 4060 8GB GDDR6 Dual Fan (PVR40608GR6DF2)",
+      "category": "gpu",
+      "specs": {
+        "vramGb": 8,
+        "memoryType": "GDDR6",
+        "busWidthBit": 128,
+        "tdpW": 115,
+        "lengthMm": 216,
+        "powerConnectors": [
+          "1x PCIe 8-pin"
+        ],
+        "interface": "PCIe 4.0 x8"
+      },
+      "offers": [
+        {
+          "store": "TerabyteShop",
+          "price": 2749.9,
+          "currency": "BRL",
+          "url": "https://www.terabyteshop.com.br/produto/43986/placa-de-video-pcyes-nvidia-geforce-rtx-4060-gddr6-8gb-128-bit-dual-fan-preta-ray-tracing-pvr40608gr6df2",
+          "checkedAt": "2026-11-07",
+          "condition": "new",
+          "inStock": true,
+          "paymentNote": "R$ 2.749,90 à vista no boleto ou Pix; preço parcelado diferente."
+        }
+      ]
     }
   ],
   "offers": [],
   "notes": [
     "Somente ofertas com preço, link HTTPS, data de consulta recente, produto novo e estoque explicitamente confirmado entram no gerador.",
     "O Ryzen 5 5500 está com oferta validada na TerabyteShop; os demais itens são candidatos de pesquisa e não podem ser recomendados até a validação de preço e estoque.",
-    "O catálogo é incremental: candidatos sem oferta validada ficam fora das combinações."
+    "O catálogo é incremental: candidatos sem oferta validada ficam fora das combinações.",
+    "GPU adicionada: PCYES RTX 4060 8GB Dual Fan, código PVR40608GR6DF2. Página da TerabyteShop indica produto novo, pronta entrega, preço à vista de R$ 2.749,90 e dimensões de 216 mm; validar novamente antes de cada compra."
   ],
   "researchQueue": [
     {
@@ -157,6 +187,24 @@
       "source": "Pichau",
       "url": "https://www.pichau.com.br/gabinete-gamer-aigo-darkflash-c195m-mesh-mini-tower-lateral-de-vidro-preto-ac-c195m-mesh-b-hq1",
       "note": "Especificações confirmam suporte mATX/ITX, GPU até 280mm e cooler até 165mm; confirmar preço e estoque."
+    },
+    {
+      "category": "gpu",
+      "model": "ASRock Radeon RX 7600 Challenger OC 8GB",
+      "source": "KaBuM",
+      "note": "Resultado de produto indica R$ 1.899,99; falta validar página direta, SKU, estoque e preço final antes de publicar."
+    },
+    {
+      "category": "gpu",
+      "model": "AMD Radeon RX 6600 8GB",
+      "source": "Microgem / comparadores",
+      "note": "Encontradas ofertas e referências com preços divergentes; verificar link direto do varejista e estoque antes de publicar."
+    },
+    {
+      "category": "cpu",
+      "model": "AMD Ryzen 5 5600 (100-100000927BOX)",
+      "source": "Amazon Brasil / comparadores",
+      "note": "Preço encontrado em agregador, ainda precisa de página direta de produto e confirmação de novo/estoque."
     }
   ]
 }
