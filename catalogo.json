@@ -49,7 +49,9 @@
       ],
       "identifiers": [
         "100-100000457BOX"
-      ]
+      ],
+      "specSource": "https://www.amd.com/pt/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-5-5500.html",
+      "specsVerifiedAt": "2026-11-07"
     },
     {
       "id": "gigabyte-b550m-ds3h-r2",
@@ -75,7 +77,9 @@
       "offers": [],
       "identifiers": [
         "B550M DS3H R2"
-      ]
+      ],
+      "specSource": "https://www.gigabyte.com/br/Motherboard/B550M-DS3H-R2/sp",
+      "specsVerifiedAt": "2026-11-07"
     },
     {
       "id": "teamgroup-tforce-elite-plus-16gb-ddr4-3200",
@@ -127,7 +131,9 @@
       "offers": [],
       "identifiers": [
         "306-7ZPAX39-HH9"
-      ]
+      ],
+      "specSource": "https://www.msi.com/Power-Supply/MAG-A650BNL/Specification",
+      "specsVerifiedAt": "2026-11-07"
     },
     {
       "id": "aigo-darkflash-c195m-mesh",
@@ -187,7 +193,8 @@
     "Somente ofertas com preço, link HTTPS, data de consulta recente, produto novo e estoque explicitamente confirmado entram no gerador.",
     "O Ryzen 5 5500 está com oferta validada na TerabyteShop; os demais itens são candidatos de pesquisa e não podem ser recomendados até a validação de preço e estoque.",
     "O catálogo é incremental: candidatos sem oferta validada ficam fora das combinações.",
-    "GPU adicionada: PCYES RTX 4060 8GB Dual Fan, código PVR40608GR6DF2. Página da TerabyteShop indica produto novo, pronta entrega, preço à vista de R$ 2.749,90 e dimensões de 216 mm; validar novamente antes de cada compra."
+    "GPU adicionada: PCYES RTX 4060 8GB Dual Fan, código PVR40608GR6DF2. Página da TerabyteShop indica produto novo, pronta entrega, preço à vista de R$ 2.749,90 e dimensões de 216 mm; validar novamente antes de cada compra.",
+    "Dados técnicos de CPU, placa-mãe e fonte conferidos nas páginas oficiais dos fabricantes em 2026-11-07. O suporte de BIOS deve ser conferido pela revisão exata da placa antes da compra."
   ],
   "researchQueue": [
     {
