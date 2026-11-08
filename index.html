@@ -17,7 +17,7 @@ label{display:block;margin:18px 0 8px}
 input,select{width:100%;padding:14px;border-radius:9px;border:1px solid #405675;background:#091322;color:white;font-size:16px}
 button{width:100%;padding:16px;background:#12bce8;color:#06111d;font-size:17px;font-weight:bold;border:0;border-radius:10px;cursor:pointer;margin-top:22px}
 button:hover{background:#63dcff}
-#next-build{position:fixed;right:22px;bottom:22px;width:66px;height:66px;min-width:66px;padding:0;margin:0;border-radius:50%;font-size:30px;line-height:1;box-shadow:0 8px 28px rgba(0,0,0,.45);z-index:1000;display:none}
+#next-build{position:fixed;right:22px;bottom:22px;width:66px;height:66px;min-width:66px;padding:0;margin:0;border-radius:50%;font-size:30px;line-height:1;box-shadow:0 8px 28px rgba(0,0,0,.45);z-index:1000;display:flex;align-items:center;justify-content:center}
 #next-build:disabled{background:#29445b;color:#d4e4f2;cursor:not-allowed;opacity:.95}
 #next-build:hover:not(:disabled){transform:translateY(-2px)}
 .result{display:none}
@@ -69,7 +69,7 @@ footer{text-align:center;padding:25px;color:#8fa4bf}
 <p class="small" id="progress"></p>
 <div id="parts"></div>
 <p class="small" id="advice"></p>
-<button id="next-build" onclick="showNextBuild()" style="display:none">GERAR OUTRA CONFIGURAÇÃO</button>
+<button id="next-build" onclick="handleFloatingBuild()" aria-label="Gerar configuração" title="Gerar configuração">↻</button>
 <button id="print-build" onclick="window.print()" style="display:none">SALVAR / IMPRIMIR CONFIGURAÇÃO</button>
 </section>
 
@@ -128,6 +128,11 @@ function renderBuild(build,index){
  document.getElementById('print-build').style.display='block';
 }
 
+function handleFloatingBuild(){
+ if(!availableBuilds.length){buildPC();return;}
+ showNextBuild();
+}
+
 function showNextBuild(){
  if(currentBuildIndex+1>=availableBuilds.length){
   const message=document.createElement('div');message.className='part';
@@ -152,7 +157,7 @@ async function buildPC(){
  result.style.display='block';summary.textContent='Consultando catálogo e verificando compatibilidade...';
  document.getElementById('parts').textContent='';
  document.getElementById('progress').textContent='';
- document.getElementById('next-build').style.display='none';
+ const floatingButton=document.getElementById('next-build');\n  floatingButton.disabled=false;floatingButton.textContent='↻';floatingButton.setAttribute('aria-label','Gerar próxima configuração');floatingButton.title='Gerar próxima configuração';
  document.getElementById('print-build').style.display='none';
  try{
   const response=await fetch('catalogo.json',{cache:'no-store'});if(!response.ok)throw new Error('Não foi possível carregar o catálogo.');
