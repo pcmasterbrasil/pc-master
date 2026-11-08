@@ -20,10 +20,143 @@
     "case",
     "cooler"
   ],
-  "products": [],
+  "products": [
+    {
+      "id": "amd-ryzen-5-5500-100-100000457box",
+      "brand": "AMD",
+      "model": "Ryzen 5 5500 (100-100000457BOX)",
+      "category": "cpu",
+      "specs": {
+        "socket": "AM4",
+        "tdpW": 65,
+        "memoryType": "DDR4",
+        "memorySpeedMhz": 3200,
+        "coolerIncluded": true,
+        "integratedGraphics": false
+      },
+      "researchStatus": "validated_offer",
+      "offers": [
+        {
+          "store": "TerabyteShop",
+          "price": 559.99,
+          "currency": "BRL",
+          "url": "https://www.terabyteshop.com.br/produto/20782/processador-amd-ryzen-5-5500-36ghz-42ghz-turbo-6-cores-12-threads-cooler-wraith-stealth-am4-100-100000457box",
+          "checkedAt": "2026-11-06",
+          "condition": "new",
+          "inStock": true,
+          "paymentNote": "Preço à vista informado pela loja"
+        }
+      ]
+    },
+    {
+      "id": "gigabyte-b550m-ds3h-r2",
+      "brand": "Gigabyte",
+      "model": "B550M DS3H R2",
+      "category": "motherboard",
+      "specs": {
+        "socket": "AM4",
+        "memoryType": "DDR4",
+        "formFactor": "mATX",
+        "estimatedW": 50,
+        "m2Slots": 2
+      },
+      "researchStatus": "candidate_specs_confirmed_offer_needs_stock_and_price_recheck",
+      "offers": []
+    },
+    {
+      "id": "teamgroup-tforce-elite-plus-16gb-ddr4-3200",
+      "brand": "Team Group",
+      "model": "T-Force Elite Plus 16GB (2x8GB) DDR4-3200 CL22 (TPD416G3200HC22DC01)",
+      "category": "ram",
+      "specs": {
+        "memoryType": "DDR4",
+        "capacityGb": 16,
+        "speedMhz": 3200,
+        "estimatedW": 10
+      },
+      "researchStatus": "candidate_specs_confirmed_offer_needs_stock_recheck",
+      "offers": []
+    },
+    {
+      "id": "adata-swordfish-500gb",
+      "brand": "ADATA",
+      "model": "Swordfish 500GB M.2 2280 NVMe (ASWORDFISH-500G-C)",
+      "category": "storage",
+      "specs": {
+        "capacityGb": 500,
+        "formFactor": "M.2 2280",
+        "interface": "NVMe PCIe 3.0 x4",
+        "estimatedW": 5
+      },
+      "researchStatus": "candidate_offer_needs_current_price_and_stock_recheck",
+      "offers": []
+    },
+    {
+      "id": "msi-mag-a650bnl",
+      "brand": "MSI",
+      "model": "MAG A650BNL 650W 80 Plus Bronze (306-7ZPAX39-HH9)",
+      "category": "psu",
+      "specs": {
+        "wattageW": 650,
+        "efficiency": "80 Plus Bronze"
+      },
+      "researchStatus": "candidate_offer_needs_stock_recheck",
+      "offers": []
+    },
+    {
+      "id": "aigo-darkflash-c195m-mesh",
+      "brand": "Aigo / Darkflash",
+      "model": "C195M Mesh (AC-C195M-MESH-B-HQ1)",
+      "category": "case",
+      "specs": {
+        "formFactors": [
+          "mATX",
+          "Mini-ITX"
+        ],
+        "maxGpuLengthMm": 280,
+        "maxCpuCoolerHeightMm": 165,
+        "psuFormFactor": "ATX"
+      },
+      "researchStatus": "candidate_specs_confirmed_offer_needs_stock_and_price_recheck",
+      "offers": []
+    }
+  ],
   "offers": [],
   "notes": [
-    "O catálogo começa vazio intencionalmente: nenhum componente será recomendado como comprável sem modelo exato, dados técnicos, oferta verificável e data de consulta.",
-    "Cada produto pode ter várias ofertas de lojas brasileiras; preços e estoque precisam ser revalidados antes de exibir a recomendação."
+    "Somente ofertas com preço, link HTTPS, data de consulta recente, produto novo e estoque explicitamente confirmado entram no gerador.",
+    "O Ryzen 5 5500 está com oferta validada na TerabyteShop; os demais itens são candidatos de pesquisa e não podem ser recomendados até a validação de preço e estoque.",
+    "O catálogo é incremental: candidatos sem oferta validada ficam fora das combinações."
+  ],
+  "researchQueue": [
+    {
+      "productId": "gigabyte-b550m-ds3h-r2",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/placa-mae-gigabyte-b550m-ds3h-r2-ddr4-socket-amd-am4-m-atx-chipset-amd-b550-b550m-ds3h-r2",
+      "note": "Página confirma AM4, DDR4 e formato mATX; preço do resultado de busca divergiu da página aberta. Revalidar preço e estoque antes de ofertar."
+    },
+    {
+      "productId": "teamgroup-tforce-elite-plus-16gb-ddr4-3200",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/memoria-team-group-t-force-elite-plus-16gb-2x8gb-ddr4-3200mhz-c22-preto-tpd416g3200hc22dc01",
+      "note": "Página confirma kit 2x8GB DDR4-3200. Confirmar estoque no checkout."
+    },
+    {
+      "productId": "adata-swordfish-500gb",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/ssd-adata-swordfish-500gb-m-2-2280-pcie-nvme-aswordfish-500g-c",
+      "note": "Modelo e especificações foram encontrados, mas a página redirecionou para a categoria; revalidar preço e estoque."
+    },
+    {
+      "productId": "msi-mag-a650bnl",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/fonte-msi-mag-a650bnl-650w-80-plus-bronze-preto-306-7zpax39-hh9",
+      "note": "Página confirma 650W e 80 Plus Bronze; preço mudou entre resultados. Revalidar valor e estoque."
+    },
+    {
+      "productId": "aigo-darkflash-c195m-mesh",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/gabinete-gamer-aigo-darkflash-c195m-mesh-mini-tower-lateral-de-vidro-preto-ac-c195m-mesh-b-hq1",
+      "note": "Especificações confirmam suporte mATX/ITX, GPU até 280mm e cooler até 165mm; confirmar preço e estoque."
+    }
   ]
 }
