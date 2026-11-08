@@ -15,7 +15,7 @@ const base = [
   product("board", "motherboard", { socket: "AM4", memoryType: "DDR4", formFactor: "mATX", estimatedW: 50, storageInterfaces: ["NVMe PCIe 3.0 x4"] }, 400),
   product("ram", "ram", { memoryType: "DDR4", capacityGb: 16, speedMhz: 3200, estimatedW: 10 }, 250),
   product("ssd", "storage", { interface: "NVMe PCIe 3.0 x4", formFactor: "M.2 2280", estimatedW: 5 }, 200),
-  product("psu", "psu", { wattageW: 650, pcieConnectors: ["1x PCIe 8-pin"] }, 350),
+  product("psu", "psu", { wattageW: 650, pcieConnectors: ["2x PCIe 6+2-pin"] }, 350),
   product("case", "case", { formFactors: ["mATX"], maxGpuLengthMm: 300 }, 250),
   product("gpu", "gpu", { tdpW: 115, lengthMm: 220, powerConnectors: ["1x PCIe 8-pin"] }, 1500)
 ];
@@ -28,6 +28,16 @@ const noGpuConnector = structuredClone(base);
 noGpuConnector.find(p => p.category === "psu").specs.pcieConnectors = [];
 assert.equal(PCMaster.generate({ products: noGpuConnector }, 4000, "games", "balance").length, 0,
   "deve rejeitar fonte sem conector exigido pela GPU");
+
+const tooLongGpu = structuredClone(base);
+tooLongGpu.find(p => p.category === "case").specs.maxGpuLengthMm = 200;
+assert.equal(PCMaster.generate({ products: tooLongGpu }, 4000, "games", "balance").length, 0,
+  "deve rejeitar GPU maior que o espaço do gabinete");
+
+const wrongMemory = structuredClone(base);
+wrongMemory.find(p => p.category === "ram").specs.memoryType = "DDR5";
+assert.equal(PCMaster.generate({ products: wrongMemory }, 4000, "games", "balance").length, 0,
+  "deve rejeitar memória incompatível com a placa-mãe");
 
 const stale = structuredClone(base);
 stale[0].offers[0].checkedAt = "2020-01-01";
