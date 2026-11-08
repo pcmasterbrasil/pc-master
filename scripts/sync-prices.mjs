@@ -40,8 +40,16 @@ const outOfStock = new Map();
 const rejected = [];
 const parsePrice = value => {
   if (typeof value === "number") return value;
-  const match = String(value || "").replace(",", ".").match(/[0-9]+(?:\.[0-9]+)?/);
-  return match ? Number(match[0]) : NaN;
+  let text = String(value || "").trim().replace(/[^0-9,.-]/g, "");
+  if (text.includes(",") && text.includes(".")) {
+    text = text.lastIndexOf(",") > text.lastIndexOf(".")
+      ? text.replace(/\./g, "").replace(",", ".")
+      : text.replace(/,/g, "");
+  } else if (text.includes(",")) {
+    text = text.replace(",", ".");
+  }
+  const price = Number(text);
+  return Number.isFinite(price) ? price : NaN;
 };
 
 for (const item of feedOffers) {
