@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import PCMaster from "../motor.js";
 
 const today = new Date().toISOString().slice(0, 10);
@@ -102,5 +103,18 @@ const unknownCpuCooler = structuredClone(base);
 delete unknownCpuCooler[0].specs.coolerIncluded;
 assert.equal(PCMaster.generate({ products: unknownCpuCooler }, 4000, "games", "balance").length, 0,
   "deve exigir confirmação de cooler incluso ou cooler adicional");
+
+const catalog = JSON.parse(readFileSync(new URL("../catalogo.json", import.meta.url), "utf8"));
+const catalogProducts = structuredClone(catalog.products);
+for (const item of catalogProducts) {
+  for (const currentOffer of item.offers || []) currentOffer.checkedAt = today;
+}
+const catalogBuilds = PCMaster.generate({ products: catalogProducts }, 7000, "games", "balance");
+assert.ok(catalogBuilds.some(build =>
+  build.parts.some(part => part.id === "intel-core-i5-12400f-bx8071512400f") &&
+  build.parts.some(part => part.id === "biostar-h610mhp-2-0-ih61umds") &&
+  build.parts.some(part => part.id === "synex-16gb-ddr4-3200") &&
+  build.parts.some(part => part.id === "kingston-nv3-500gb-snv3s500g")
+), "o catálogo real deve gerar uma configuração Intel completa e compatível");
 
 console.log("Testes PC MASTER: todos passaram.");
