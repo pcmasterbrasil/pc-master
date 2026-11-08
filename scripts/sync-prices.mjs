@@ -98,7 +98,9 @@ for (const [productId, offers] of accepted) {
     const key = `${offer.store}|${offer.url}`;
     if (!unique.has(key) || offer.price < unique.get(key).price) unique.set(key, offer);
   }
-  product.offers = [...unique.values()].sort((a, b) => a.price - b.price);
+  const refreshedStores = new Set([...unique.values()].map(offer => offer.store));
+  const retained = (product.offers || []).filter(offer => !refreshedStores.has(offer.store));
+  product.offers = [...retained, ...unique.values()].sort((a, b) => a.price - b.price);
   product.researchStatus = "validated_offer";
 }
 catalog.lastPriceSyncAt = now.toISOString();
