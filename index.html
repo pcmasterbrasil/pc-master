@@ -71,6 +71,18 @@ footer{text-align:center;padding:25px;color:#8fa4bf}
 
 <script src="motor.js"></script>
 <script>
+function updatePriceStatus(catalog){
+ const status=document.getElementById('price-status');
+ if(!status)return;
+ if(catalog.lastPriceSyncAt){
+  const checked=new Date(catalog.lastPriceSyncAt);
+  status.textContent='Última sincronização automática: '+checked.toLocaleString('pt-BR')+'. Ofertas são exibidas somente enquanto estiverem dentro do prazo de validade.';
+ }else{
+  status.textContent='Atualização automática: falta conectar um feed/API autorizado. As ofertas existentes mostram a data da consulta individual.';
+ }
+}
+fetch('catalogo.json',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error('Catálogo indisponível');return response.json();}).then(updatePriceStatus).catch(()=>{const status=document.getElementById('price-status');if(status)status.textContent='Não foi possível consultar a atualização do catálogo agora.';});
+
 async function buildPC(){
  const budget=Number(document.getElementById('budget').value);
  const purpose=document.getElementById('purpose').value;
@@ -82,13 +94,7 @@ async function buildPC(){
  try{
   const response=await fetch('catalogo.json',{cache:'no-store'});if(!response.ok)throw new Error('Não foi possível carregar o catálogo.');
   const catalog=await response.json();
-  const status=document.getElementById('price-status');
-  if(catalog.lastPriceSyncAt){
-   const checked=new Date(catalog.lastPriceSyncAt);
-   status.textContent='Última sincronização automática: '+checked.toLocaleString('pt-BR')+'. Ofertas são exibidas somente enquanto estiverem dentro do prazo de validade.';
-  }else{
-   status.textContent='Atualização automática: falta conectar um feed/API autorizado. As ofertas existentes mostram a data da consulta individual.';
-  }
+  updatePriceStatus(catalog);
   const builds=window.PCMaster.generate(catalog,budget,purpose,priority);
   summary.textContent='Orçamento: '+budget.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · Finalidade: '+({games:'Jogos',work:'Trabalho e estudos',editing:'Edição'}[purpose])+' · Prioridade: '+({balance:'Equilíbrio',performance:'Desempenho',economy:'Economia'}[priority]);
   if(!builds.length){
