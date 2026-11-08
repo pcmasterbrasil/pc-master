@@ -12,7 +12,7 @@ const product = (id, category, specs, price) => ({
 });
 const base = [
   product("cpu", "cpu", { socket: "AM4", memoryType: "DDR4", tdpW: 65, coolerIncluded: true, integratedGraphics: false }, 500),
-  product("board", "motherboard", { socket: "AM4", memoryType: "DDR4", formFactor: "mATX", estimatedW: 50, storageInterfaces: ["NVMe PCIe 3.0 x4"] }, 400),
+  product("board", "motherboard", { socket: "AM4", memoryType: "DDR4", formFactor: "mATX", estimatedW: 50, storageInterfaces: ["NVMe PCIe 3.0 x4"], m2Slots: 1 }, 400),
   product("ram", "ram", { memoryType: "DDR4", capacityGb: 16, speedMhz: 3200, estimatedW: 10 }, 250),
   product("ssd", "storage", { interface: "NVMe PCIe 3.0 x4", formFactor: "M.2 2280", estimatedW: 5 }, 200),
   product("psu", "psu", { wattageW: 650, pcieConnectors: ["2x PCIe 6+2-pin"] }, 350),
