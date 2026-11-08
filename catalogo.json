@@ -545,6 +545,75 @@
         "RM-D4-16G-3200Z"
       ],
       "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "msi-pro-h610m-s-ddr4",
+      "brand": "MSI",
+      "model": "PRO H610M-S DDR4 (PRO H610M-S DDR4)",
+      "category": "motherboard",
+      "specs": {
+        "socket": "LGA1700",
+        "memoryType": "DDR4",
+        "formFactor": "mATX",
+        "estimatedW": 50,
+        "m2Slots": 1,
+        "maxMemoryGb": 64,
+        "memorySlots": 2,
+        "maxMemorySpeedMhz": 3200,
+        "storageInterfaces": [
+          "NVMe PCIe 3.0 x4"
+        ],
+        "supportedCpuIds": [
+          "intel-core-i5-12400f-bx8071512400f"
+        ]
+      },
+      "researchStatus": "validated_offer",
+      "offers": [
+        {
+          "store": "TerabyteShop",
+          "price": 499.99,
+          "currency": "BRL",
+          "url": "https://www.terabyteshop.com.br/produto/31521/placa-mae-msi-pro-h610m-s-chipset-h610-intel-lga-1700-matx-ddr4",
+          "checkedAt": "2026-11-08",
+          "condition": "new",
+          "inStock": true,
+          "paymentNote": "R$ 499,99 à vista no Pix/boleto; página indicava produto novo, pronta entrega e 11 unidades restantes."
+        }
+      ],
+      "identifiers": [
+        "PRO H610M-S DDR4"
+      ],
+      "specSource": "https://br.msi.com/Motherboard/PRO-H610M-S-DDR4/Specification",
+      "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "sandisk-optimus-5100-500gb-sdsp51500gan-000e0",
+      "brand": "SanDisk",
+      "model": "Optimus 5100 500GB NVMe PCIe 4.0 M.2 2280 (SDSP51500GAN-000E0)",
+      "category": "storage",
+      "specs": {
+        "capacityGb": 500,
+        "formFactor": "M.2 2280",
+        "interface": "NVMe PCIe 4.0 x4",
+        "estimatedW": 5
+      },
+      "researchStatus": "validated_offer",
+      "offers": [
+        {
+          "store": "TerabyteShop",
+          "price": 899.9,
+          "currency": "BRL",
+          "url": "https://www.terabyteshop.com.br/produto/42991/ssd-sandisk-optimus-5100-500gb-nvme-pcie-40-m2-2280-leitura-6600mbs-e-gravacao-5600mbs-sdsp51500gan-000e0",
+          "checkedAt": "2026-11-08",
+          "condition": "new",
+          "inStock": true,
+          "paymentNote": "R$ 899,90 à vista no Pix/boleto; página indicava produto novo, pronta entrega e 1 unidade restante."
+        }
+      ],
+      "identifiers": [
+        "SDSP51500GAN-000E0"
+      ],
+      "specsVerifiedAt": "2026-11-08"
     }
   ],
   "offers": [],
@@ -564,7 +633,9 @@
     "ASRock Radeon RX 7600 Challenger OC 8GB (90-GA41ZZ-00UANF) adicionada como candidata técnica em 2026-11-08. Especificações oficiais ASRock: 8GB GDDR6, 128-bit, PCIe 4.0 x8, 165W, 1x8-pin, PSU recomendado 550W e comprimento 269,2mm. Oferta FGTEC com 5 unidades e R$ 2.616,60 observada, mas condição nova ainda precisa confirmação explícita; não participa do gerador.",
     "ASRock Radeon RX 6600 Challenger D 8GB adicionada como candidata técnica em 2026-11-08, com especificações conferidas na página oficial ASRock. Ainda sem oferta direta validada com condição nova, preço e estoque; não participa do gerador.",
     "Dois kits de memória DDR4 16GB (2x8GB) adicionados como candidatos em 2026-11-08: Apacer NOX CL16 (R$ 289,99 Pix observado na Pichau) e Mancer Dantalion Z CL16 (R$ 269,99 Pix observado na Pichau). Ambos aguardam confirmação explícita de estoque e condição nova; ainda não entram no gerador.",
-    "Memória Rise Mode Z Series 16GB DDR4-3200 (RM-D4-16G-3200Z) adicionada com oferta TerabyteShop consultada em 2026-11-08: R$ 719,99 à vista, produto novo, pronta entrega e 87 unidades restantes. Módulo único de 16GB; não é kit dual-channel."
+    "Memória Rise Mode Z Series 16GB DDR4-3200 (RM-D4-16G-3200Z) adicionada com oferta TerabyteShop consultada em 2026-11-08: R$ 719,99 à vista, produto novo, pronta entrega e 87 unidades restantes. Módulo único de 16GB; não é kit dual-channel.",
+    "Placa-mãe MSI PRO H610M-S DDR4 adicionada com oferta TerabyteShop de R$ 499,99 à vista, produto novo, pronta entrega e 11 unidades restantes consultadas em 2026-11-08. Especificações DDR4/LGA1700/mATX e suporte a CPUs Intel Core de 12ª geração conferidos no fabricante; cadastrada com compatibilidade explícita ao i5-12400F.",
+    "SSD SanDisk Optimus 5100 500GB NVMe PCIe 4.0 adicionado com oferta TerabyteShop de R$ 899,90 à vista, produto novo, pronta entrega e 1 unidade restante consultadas em 2026-11-08. O SSD PCIe 4.0 é retrocompatível com slots NVMe PCIe 3.0 x4, operando limitado à velocidade do slot."
   ],
   "researchQueue": [
     {
