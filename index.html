@@ -17,6 +17,9 @@ label{display:block;margin:18px 0 8px}
 input,select{width:100%;padding:14px;border-radius:9px;border:1px solid #405675;background:#091322;color:white;font-size:16px}
 button{width:100%;padding:16px;background:#12bce8;color:#06111d;font-size:17px;font-weight:bold;border:0;border-radius:10px;cursor:pointer;margin-top:22px}
 button:hover{background:#63dcff}
+#next-build{position:fixed;right:22px;bottom:22px;width:66px;height:66px;min-width:66px;padding:0;margin:0;border-radius:50%;font-size:30px;line-height:1;box-shadow:0 8px 28px rgba(0,0,0,.45);z-index:1000;display:none}
+#next-build:disabled{background:#29445b;color:#d4e4f2;cursor:not-allowed;opacity:.95}
+#next-build:hover:not(:disabled){transform:translateY(-2px)}
 .result{display:none}
 .part{padding:13px;background:#0a1424;border-radius:9px;margin:10px 0;border-left:3px solid #42d9ff}
 .small{font-size:13px;color:#a9bad0;line-height:1.5}
@@ -25,7 +28,7 @@ button:hover{background:#63dcff}
 a{color:#42d9ff;font-weight:bold}
 button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #63dcff;outline-offset:3px}
 footer{text-align:center;padding:25px;color:#8fa4bf}
-@media(max-width:600px){header{padding:26px 12px}header h1{font-size:30px}main{margin:12px auto;padding:12px}.card{padding:18px}button{font-size:15px}}
+@media(max-width:600px){header{padding:26px 12px}header h1{font-size:30px}main{margin:12px auto;padding:12px}.card{padding:18px}button{font-size:15px}#next-build{right:16px;bottom:16px;width:60px;height:60px;min-width:60px;font-size:27px}}
 @media print{body{background:#fff;color:#111}header{background:#fff;color:#111}header h1,h2,.part h3{color:#075d79}.card,.part{background:#fff;border:1px solid #bbb;color:#111}.small,footer{color:#444}button{display:none}a{color:#0645ad}}
 </style>
 </head>
@@ -114,7 +117,9 @@ function renderBuild(build,index){
  const isLast=index===availableBuilds.length-1;
  nextButton.style.display='block';
  nextButton.disabled=isLast;
- nextButton.textContent=isLast?'MÁXIMO DE CONFIGURAÇÕES ATINGIDO':'GERAR PRÓXIMA CONFIGURAÇÃO ('+(index+1)+'/'+availableBuilds.length+')';
+ nextButton.textContent=isLast?'✓':'↻';
+ nextButton.setAttribute('aria-label',isLast?'Limite de configurações atingido':'Gerar próxima configuração');
+ nextButton.title=isLast?'Limite de configurações atingido':'Gerar próxima configuração';
  if(isLast){
   const message=document.createElement('div');message.className='part';
   message.textContent='Você chegou ao máximo de configurações encontradas para este orçamento, finalidade e prioridade. Todas as '+availableBuilds.length+' configurações disponíveis foram exibidas. Altere algum critério para descobrir outras combinações.';
@@ -129,7 +134,7 @@ function showNextBuild(){
   message.textContent='Você chegou ao máximo de configurações encontradas para este orçamento, finalidade e prioridade. Altere algum critério para descobrir outras combinações.';
   document.getElementById('parts').appendChild(message);
   document.getElementById('progress').textContent='Todas as '+availableBuilds.length+' configurações encontradas já foram exibidas.';
-  const button=document.getElementById('next-build');button.disabled=true;button.textContent='MÁXIMO DE CONFIGURAÇÕES ATINGIDO';
+  const button=document.getElementById('next-build');button.disabled=true;button.textContent='✓';button.setAttribute('aria-label','Limite de configurações atingido');button.title='Limite de configurações atingido';
   return;
  }
  currentBuildIndex++;
@@ -157,7 +162,7 @@ async function buildPC(){
   summary.textContent='Orçamento: '+budget.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · Finalidade: '+({games:'Jogos',work:'Trabalho e estudos',editing:'Edição'}[purpose])+' · Prioridade: '+({balance:'Equilíbrio',performance:'Desempenho',economy:'Economia'}[priority])+' · '+availableBuilds.length+' configurações encontradas';
   if(!availableBuilds.length){
    const empty=document.createElement('div');empty.className='part';
-   empty.textContent='Ainda não há peças com ofertas verificadas suficientes para montar uma configuração válida. Estamos preparando o catálogo de produtos novos vendidos no Brasil. Nenhum modelo, preço ou link será inventado.';
+   empty.textContent='Não encontramos uma configuração válida para estes critérios. O catálogo ainda é pequeno e, no orçamento atual de R$ '+budget.toLocaleString('pt-BR')+', as peças com ofertas verificadas podem ultrapassar o valor disponível. Tente aumentar o orçamento ou escolher outra finalidade. Estamos ampliando o catálogo; não inventamos modelos, preços ou links.';
    document.getElementById('parts').appendChild(empty);
    advice.textContent='Quando houver peças e ofertas compatíveis, o PC MASTER exibirá as combinações disponíveis dentro do orçamento.';
   }else{
