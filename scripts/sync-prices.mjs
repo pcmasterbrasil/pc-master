@@ -65,7 +65,7 @@ for (const item of feedOffers) {
   const availability = String(item.availability || "").toLowerCase();
   const inStock = item.inStock === true || item.in_stock === "1" || item.in_stock === true || availability === "in_stock";
   if (product && typeof store === "string" && store.trim() &&
-      (item.inStock === false || item.in_stock === "0" || item.in_stock === 0 || availability === "out_of_stock" || availability === "not_available")) {
+      (item.inStock === false || item.in_stock === false || item.in_stock === "0" || item.in_stock === 0 || availability === "out_of_stock" || availability === "not_available")) {
     const key = product.id;
     const stores = outOfStock.get(key) || new Set();
     stores.add(store.trim());
@@ -73,12 +73,12 @@ for (const item of feedOffers) {
     continue;
   }
   const currency = String(item.currency || item.price || "").toUpperCase();
+  const currencyIsBrl = item.currency === "BRL" ||
+    (typeof item.price === "string" && /\bBRL\b/i.test(item.price));
   const valid = product && typeof store === "string" && store.trim() &&
     Number.isFinite(price) && price > 0 &&
     typeof url === "string" && /^https:\/\//i.test(url) &&
-    ["new", "novo"].includes(condition) && inStock &&
-    !currency.includes("USD") && !currency.includes("EUR") &&
-    (!item.price || !String(item.price).match(/[A-Z]{3}/) || currency.includes("BRL") || item.currency === "BRL");
+    ["new", "novo"].includes(condition) && inStock && currencyIsBrl;
   if (!valid) {
     rejected.push(item.productId || item.mpn || item.gtin || item.id || "oferta sem identificador");
     continue;
