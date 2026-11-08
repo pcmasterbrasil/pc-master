@@ -109,7 +109,7 @@ const catalogProducts = structuredClone(catalog.products);
 for (const item of catalogProducts) {
   for (const currentOffer of item.offers || []) currentOffer.checkedAt = today;
 }
-const catalogBuilds = PCMaster.generate({ products: catalogProducts }, 7000, "games", "balance");
+const catalogBuilds = PCMaster.generate({ products: catalogProducts }, 6060, "games", "balance");
 assert.ok(catalogBuilds.some(build =>
   build.parts.some(part => part.id === "intel-core-i5-12400f-bx8071512400f") &&
   build.parts.some(part => part.id === "biostar-h610mhp-2-0-ih61umds") &&
