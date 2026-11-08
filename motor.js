@@ -94,6 +94,8 @@ const PCMaster = (() => {
       if (results.length >= MAX_CANDIDATE_BUILDS || visitedNodes >= MAX_SEARCH_NODES) return;
       visitedNodes++;
       if (index === order.length) {
+        // Um PC sem GPU dedicada só pode ser montado se o processador tiver vídeo integrado.
+        if (!chosen.gpu && chosen.cpu?.product.specs?.integratedGraphics !== true) return;
         if (!compatible(chosen)) return;
         const parts = Object.entries(chosen).map(([category, item]) => ({
           ...item.product,
