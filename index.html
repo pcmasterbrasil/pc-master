@@ -68,82 +68,34 @@ footer{text-align:center;padding:25px;color:#8fa4bf}
 </main>
 <footer>PC MASTER © 2026 — Monte melhor, gaste com inteligência.</footer>
 
+<script src="motor.js"></script>
 <script>
-function buildPC(){
+async function buildPC(){
  const budget=Number(document.getElementById('budget').value);
  const purpose=document.getElementById('purpose').value;
  const priority=document.getElementById('priority').value;
-
- if(!Number.isFinite(budget)||budget<1000){
-  alert('Informe um orçamento de pelo menos R$ 1.000.');
-  return;
- }
-
- let cpu,gpu,ram,ssd,mother,psu,caseText;
-
- if(purpose==='games'){
-  cpu='Processador intermediário moderno, com bom desempenho em jogos';
-  gpu='Placa de vídeo dedicada, priorizando o melhor desempenho possível dentro do orçamento';
-  ram='16 GB de memória RAM (preferencialmente 2 módulos)';
-  ssd='SSD NVMe de 1 TB, se couber no orçamento';
- }else if(purpose==='editing'){
-  cpu='Processador com bom desempenho em múltiplos núcleos';
-  gpu='Placa de vídeo compatível com os programas de edição utilizados';
-  ram='32 GB de memória RAM, se possível';
-  ssd='SSD NVMe de 1 TB ou mais';
- }else{
-  cpu='Processador moderno com vídeo integrado, se não precisar de placa dedicada';
-  gpu='Vídeo integrado inicialmente; placa dedicada é opcional';
-  ram='16 GB de memória RAM';
-  ssd='SSD de 500 GB ou 1 TB';
- }
-
- if(budget<2500){
-  mother='Placa-mãe de entrada compatível com o processador escolhido';
-  psu='Fonte de qualidade, dimensionada para os componentes';
-  caseText='Gabinete ventilado e compatível com a placa-mãe';
- }else if(budget<5000){
-  mother='Placa-mãe intermediária com possibilidade de expansão';
-  psu='Fonte de boa qualidade com potência adequada à placa de vídeo';
-  caseText='Gabinete com bom fluxo de ar';
- }else{
-  mother='Placa-mãe intermediária ou avançada, conforme o processador';
-  psu='Fonte de qualidade com margem de potência para os componentes';
-  caseText='Gabinete espaçoso com boa ventilação';
- }
-
- if(priority==='economy'){
-  ram=purpose==='editing'?'16 GB de RAM inicialmente':'16 GB de RAM';
-  ssd='SSD de 500 GB, com possibilidade de expansão';
- }
- if(priority==='performance' && budget>=5000){
-  ram='32 GB de RAM';
-  ssd='SSD NVMe de 1 TB ou mais';
- }
-
- const money=budget.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
- document.getElementById('summary').textContent=
- 'Orçamento informado: '+money+'. Objetivo: '+({games:'Jogos',work:'Trabalho e estudos',editing:'Edição'}[purpose])+'.';
-
- const items=[
- ['Processador',cpu],
- ['Placa de vídeo',gpu],
- ['Memória RAM',ram],
- ['Armazenamento',ssd],
- ['Placa-mãe',mother],
- ['Fonte',psu],
- ['Gabinete',caseText]
- ];
-
- document.getElementById('parts').innerHTML=items.map(item=>
- '<div class="part"><strong>'+item[0]+'</strong><br>'+item[1]+'</div>'
- ).join('');
-
- document.getElementById('advice').textContent=
- 'Importante: esta é uma orientação inicial, não uma lista de peças já validada. Antes de comprar, confira socket, compatibilidade da memória, dimensões, conexões, consumo e potência da fonte. Os preços e a disponibilidade devem ser pesquisados nas lojas.';
-
- document.getElementById('result').style.display='block';
- document.getElementById('result').scrollIntoView({behavior:'smooth'});
+ if(!Number.isFinite(budget)||budget<1000){alert('Informe um orçamento de pelo menos R$ 1.000.');return;}
+ const result=document.getElementById('result'), partsBox=document.getElementById('parts');
+ const summary=document.getElementById('summary'), advice=document.getElementById('advice');
+ result.style.display='block';summary.textContent='Consultando catálogo e verificando compatibilidade...';partsBox.textContent='';advice.textContent='';
+ try{
+  const response=await fetch('catalogo.json',{cache:'no-store'});if(!response.ok)throw new Error('Não foi possível carregar o catálogo.');
+  const catalog=await response.json();
+  const builds=window.PCMaster.generate(catalog,budget,purpose,priority);
+  summary.textContent='Orçamento: '+budget.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · Finalidade: '+({games:'Jogos',work:'Trabalho e estudos',editing:'Edição'}[purpose])+' · Prioridade: '+({balance:'Equilíbrio',performance:'Desempenho',economy:'Economia'}[priority]);
+  if(!builds.length){
+   const empty=document.createElement('div');empty.className='part';empty.textContent='Ainda não há peças com ofertas verificadas suficientes para montar uma configuração válida. Estamos preparando o catálogo de produtos novos vendidos no Brasil. Nenhum modelo, preço ou link será inventado.';partsBox.appendChild(empty);
+   advice.textContent='Quando houver peças e ofertas compatíveis, o PC MASTER exibirá as combinações disponíveis dentro do orçamento.';
+  }else{
+   builds.forEach((build,index)=>{
+    const card=document.createElement('div');card.className='part';const h=document.createElement('h3');h.textContent='Configuração '+(index+1)+' — '+build.total.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});card.appendChild(h);
+    build.parts.forEach(product=>{const offer=window.PCMaster.offersFor(product)[0];const p=document.createElement('p');p.textContent=product.category.toUpperCase()+': '+(product.brand||'')+' '+product.model+' — '+Number(offer.price).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · '+(offer.store||'Loja')+' ';const a=document.createElement('a');a.href=offer.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Ver oferta';p.appendChild(a);card.appendChild(p);});
+    partsBox.appendChild(card);
+   });
+   advice.textContent='Ofertas do catálogo consultadas nos últimos 7 dias. Confirme preço e estoque na loja antes de comprar.';
+  }
+  result.scrollIntoView({behavior:'smooth'});
+ }catch(error){summary.textContent='Não foi possível gerar as configurações.';advice.textContent=error.message;}
 }
 </script>
 </body>
