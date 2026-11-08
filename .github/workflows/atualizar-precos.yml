@@ -3,8 +3,6 @@ name: Atualizar preços do catálogo
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - "catalogo.json"
   schedule:
     - cron: "17 */6 * * *"
   workflow_dispatch:
@@ -18,6 +16,7 @@ concurrency:
 
 jobs:
   atualizar:
+    if: ${{ github.event_name != 'push' || github.actor != 'github-actions[bot]' }}
     runs-on: ubuntu-latest
     steps:
       - name: Baixar repositório
