@@ -426,7 +426,7 @@
       ],
       "specSource": "https://br.msi.com/Motherboard/B550M-A-PRO/Specification",
       "specsVerifiedAt": "2026-11-08",
-      "compatibilityNotes": "Confirme com a loja a versão de BIOS instalada e o suporte ao Ryzen 5 5500 antes da compra."
+      "compatibilityNotes": "Para usar o Ryzen 5 5500, confirme com a loja que a placa está com BIOS 7C96v27 ou posterior. A lista de compatibilidade da MSI, reproduzida pela Pangoly, indica essa versão mínima; se necessário, a BIOS deve ser atualizada antes da instalação do processador."
     }
   ],
   "offers": [],
@@ -441,7 +441,8 @@
     "Memória Synex DDR4 16GB 3200MHz adicionada com estoque confirmado em 2026-11-08; é um único módulo, portanto oferece capacidade de 16GB em single-channel. Kits 2x8GB permanecem candidatos até confirmação de estoque.",
     "Ryzen 5 5600 (100-100000927BOX) cadastrado como candidato técnico; preço à vista de R$ 849,99 observado na Pichau em 2026-11-08, mas sem confirmação explícita de estoque. Não participa do gerador até validação da disponibilidade.",
     "Placa-mãe MSI B550M-A PRO adicionada com oferta Pichau de R$ 489,99 no Pix e indicação de Produto Disponível consultadas em 2026-11-08. Soquete AM4, DDR4, mATX, 2 slots de memória, até 64GB e 1 slot M.2. Antes da compra, conferir a versão de BIOS exigida pelo Ryzen específico.",
-    "Kit Team Group T-Force Elite Plus 16GB (2x8GB) DDR4-3200 teve preço de R$ 299,99 no Pix rechecado na Pichau em 2026-11-08, mas sem confirmação explícita de estoque no conteúdo acessível; permanece fora do gerador."
+    "Kit Team Group T-Force Elite Plus 16GB (2x8GB) DDR4-3200 teve preço de R$ 299,99 no Pix rechecado na Pichau em 2026-11-08, mas sem confirmação explícita de estoque no conteúdo acessível; permanece fora do gerador.",
+    "Compatibilidade de BIOS refinada: a lista de CPUs compatíveis da MSI reproduzida pela Pangoly indica BIOS 7C96v27 como mínima para Ryzen 5 5500 na B550M-A PRO. Confirmar a versão instalada com a loja antes da compra."
   ],
   "researchQueue": [
     {
