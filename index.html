@@ -113,7 +113,7 @@ function renderBuild(build,index){
   if(product.compatibilityNotes){const note=document.createElement('p');note.className='small';note.textContent='Atenção: '+product.compatibilityNotes;card.appendChild(note);}
  });
  partsBox.appendChild(card);
- document.getElementById('progress').textContent='Configuração '+(index+1)+' de '+availableBuilds.length+' configurações encontradas para estes critérios.';
+ document.getElementById('progress').textContent='Configuração '+(index+1)+' de '+availableBuilds.length+' disponíveis (limite de 10 por escolha).';
  document.getElementById('advice').textContent='Ofertas consultadas nos últimos 7 dias. Confirme preço e estoque na loja antes de comprar.';
  const nextButton=document.getElementById('next-build');
  const isLast=index===availableBuilds.length-1;
@@ -124,7 +124,7 @@ function renderBuild(build,index){
  nextButton.title=isLast?'Limite de configurações atingido':'Gerar próxima configuração';
  if(isLast){
   const message=document.createElement('div');message.className='part';
-  message.textContent='Você chegou ao máximo de configurações encontradas para este orçamento, finalidade e prioridade. Todas as '+availableBuilds.length+' configurações disponíveis foram exibidas. Altere algum critério para descobrir outras combinações.';
+  message.textContent='Você chegou ao limite desta escolha. Foram exibidas '+availableBuilds.length+' configurações disponíveis (máximo de 10). Altere o orçamento, a finalidade ou a prioridade para gerar outra seleção.';
   partsBox.appendChild(message);
  }
  document.getElementById('print-build').style.display='block';
@@ -167,7 +167,7 @@ async function buildPC(){
   const catalog=await response.json();updatePriceStatus(catalog);
   availableBuilds=window.PCMaster.generate(catalog,budget,purpose,priority);
   currentBuildIndex=-1;
-  summary.textContent='Orçamento: '+budget.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · Finalidade: '+({games:'Jogos',work:'Trabalho e estudos',editing:'Edição'}[purpose])+' · Prioridade: '+({balance:'Equilíbrio',performance:'Desempenho',economy:'Economia'}[priority])+' · '+availableBuilds.length+' configurações encontradas';
+  summary.textContent='Orçamento: '+budget.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · Finalidade: '+({games:'Jogos',work:'Trabalho e estudos',editing:'Edição'}[purpose])+' · Prioridade: '+({balance:'Equilíbrio',performance:'Desempenho',economy:'Economia'}[priority])+' · '+availableBuilds.length+' configurações encontradas (máximo de 10 por escolha)';
   if(!availableBuilds.length){
    const empty=document.createElement('div');empty.className='part';
    empty.textContent='Não encontramos uma configuração válida para estes critérios. O catálogo ainda é pequeno e, no orçamento atual de R$ '+budget.toLocaleString('pt-BR')+', as peças com ofertas verificadas podem ultrapassar o valor disponível. Tente aumentar o orçamento ou escolher outra finalidade. Estamos ampliando o catálogo; não inventamos modelos, preços ou links.';
