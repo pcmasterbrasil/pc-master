@@ -24,12 +24,15 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Sincronizar ofertas do feed autorizado
+      - name: Sincronizar ofertas de fonte autorizada
         env:
           PCMASTER_OFFERS_FEED_URL: ${{ secrets.PCMASTER_OFFERS_FEED_URL }}
+          PCMASTER_AWIN_FEED_URL: ${{ secrets.PCMASTER_AWIN_FEED_URL }}
+          PCMASTER_AWIN_BEARER_TOKEN: ${{ secrets.PCMASTER_AWIN_BEARER_TOKEN }}
+          PCMASTER_AWIN_STORE_NAME: ${{ secrets.PCMASTER_AWIN_STORE_NAME }}
         run: |
-          if [ -z "$PCMASTER_OFFERS_FEED_URL" ]; then
-            echo "::warning::Integração pendente. Configure o segredo PCMASTER_OFFERS_FEED_URL com um feed/API autorizado."
+          if [ -z "$PCMASTER_OFFERS_FEED_URL" ] && [ -z "$PCMASTER_AWIN_FEED_URL" ]; then
+            echo "::warning::Integração pendente. Configure um feed autorizado nos Secrets do repositório."
             exit 0
           fi
           node scripts/sync-prices.mjs
