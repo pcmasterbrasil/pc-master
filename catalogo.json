@@ -201,13 +201,19 @@
       "productId": "gigabyte-b550m-ds3h-r2",
       "source": "Pichau",
       "url": "https://www.pichau.com.br/placa-mae-gigabyte-b550m-ds3h-r2-ddr4-socket-amd-am4-m-atx-chipset-amd-b550-b550m-ds3h-r2",
-      "note": "Página confirma AM4, DDR4 e formato mATX; preço do resultado de busca divergiu da página aberta. Revalidar preço e estoque antes de ofertar."
+      "note": "Página da Pichau mostrou R$ 849,99 no Pix e R$ 999,99 no cartão; estoque não foi confirmado pelo conteúdo acessível.",
+      "observedPrice": 849.99,
+      "observedPriceAt": "2026-11-07",
+      "stockConfirmed": false
     },
     {
       "productId": "teamgroup-tforce-elite-plus-16gb-ddr4-3200",
       "source": "Pichau",
       "url": "https://www.pichau.com.br/memoria-team-group-t-force-elite-plus-16gb-2x8gb-ddr4-3200mhz-c22-preto-tpd416g3200hc22dc01",
-      "note": "Página confirma kit 2x8GB DDR4-3200. Confirmar estoque no checkout."
+      "note": "Página da Pichau mostrou R$ 299,99 no Pix e R$ 352,93 no cartão; estoque não foi confirmado pelo conteúdo acessível.",
+      "observedPrice": 299.99,
+      "observedPriceAt": "2026-11-07",
+      "stockConfirmed": false
     },
     {
       "productId": "adata-swordfish-500gb",
@@ -219,13 +225,19 @@
       "productId": "msi-mag-a650bnl",
       "source": "Pichau",
       "url": "https://www.pichau.com.br/fonte-msi-mag-a650bnl-650w-80-plus-bronze-preto-306-7zpax39-hh9",
-      "note": "Página confirma 650W e 80 Plus Bronze; preço mudou entre resultados. Revalidar valor e estoque."
+      "note": "Página da Pichau mostrou R$ 399,99 no Pix e R$ 470,58 no cartão; estoque não foi confirmado pelo conteúdo acessível.",
+      "observedPrice": 399.99,
+      "observedPriceAt": "2026-11-07",
+      "stockConfirmed": false
     },
     {
       "productId": "aigo-darkflash-c195m-mesh",
       "source": "Pichau",
       "url": "https://www.pichau.com.br/gabinete-gamer-aigo-darkflash-c195m-mesh-mini-tower-lateral-de-vidro-preto-ac-c195m-mesh-b-hq1",
-      "note": "Especificações confirmam suporte mATX/ITX, GPU até 280mm e cooler até 165mm; confirmar preço e estoque."
+      "note": "Página da Pichau mostrou R$ 99,99 no Pix, com cupom anunciado no banner; estoque e condições do cupom não foram confirmados.",
+      "observedPrice": 99.99,
+      "observedPriceAt": "2026-11-07",
+      "stockConfirmed": false
     },
     {
       "category": "gpu",
