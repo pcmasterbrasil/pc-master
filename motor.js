@@ -35,14 +35,17 @@ const PCMaster = (() => {
     const cs = cpu.specs || {}, bs = board.specs || {}, rs = ram.specs || {};
     const ss = storage.specs || {}, ps = psu.specs || {}, ks = box.specs || {};
     if (!cs.socket || cs.socket !== bs.socket) return false;
+    if (bs.supportedCpuIds && !bs.supportedCpuIds.includes(cpu.id)) return false;
     if (!cs.memoryType || cs.memoryType !== bs.memoryType || rs.memoryType !== bs.memoryType) return false;
+    if (!Number.isFinite(Number(rs.capacityGb)) || Number(rs.capacityGb) <= 0) return false;
     if (bs.maxMemoryGb && rs.capacityGb > bs.maxMemoryGb) return false;
     if (bs.memorySlots && rs.modules && rs.modules > bs.memorySlots) return false;
     if (bs.maxMemorySpeedMhz && rs.speedMhz && rs.speedMhz > bs.maxMemorySpeedMhz) return false;
-    if (bs.formFactor && ks.formFactors && !ks.formFactors.includes(bs.formFactor)) return false;
-    if (ss.interface && bs.storageInterfaces && !bs.storageInterfaces.includes(ss.interface)) return false;
-    if (ss.formFactor === "M.2 2280" && bs.m2Slots === 0) return false;
-    if (gpu && ks.maxGpuLengthMm && gpu.specs?.lengthMm && gpu.specs.lengthMm > ks.maxGpuLengthMm) return false;
+    if (!bs.formFactor || !Array.isArray(ks.formFactors) || !ks.formFactors.includes(bs.formFactor)) return false;
+    if (!ss.interface || !Array.isArray(bs.storageInterfaces) || !bs.storageInterfaces.includes(ss.interface)) return false;
+    if (ss.formFactor === "M.2 2280" && (!bs.m2Slots || bs.m2Slots <= 0)) return false;
+    if (gpu && (!Number.isFinite(Number(ks.maxGpuLengthMm)) || !Number.isFinite(Number(gpu.specs?.lengthMm)) ||
+        gpu.specs.lengthMm > ks.maxGpuLengthMm)) return false;
     if (gpu && gpu.specs?.powerConnectors?.length) {
       const countPcie8 = list => (list || []).reduce((sum, value) => {
         const text = String(value).toLowerCase();
@@ -55,7 +58,7 @@ const PCMaster = (() => {
     if (cooler) {
       if (cooler.specs?.sockets && !cooler.specs.sockets.includes(cs.socket)) return false;
       if (ks.maxCpuCoolerHeightMm && cooler.specs?.heightMm && cooler.specs.heightMm > ks.maxCpuCoolerHeightMm) return false;
-    } else if (cs.coolerIncluded === false) return false;
+    } else if (cs.coolerIncluded !== true) return false;
 
     const watts = Number(cs.tdpW || 0) + Number(gpu?.specs?.tdpW || 0) +
       Number(bs.estimatedW || 50) + Number(rs.estimatedW || 10) +
