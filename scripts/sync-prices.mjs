@@ -49,7 +49,7 @@ for (const item of feedOffers) {
     const identifier = [item.mpn, item.gtin, item.product_GTIN, item.id].find(v => v && byIdentifier.has(String(v).toLowerCase()));
     if (identifier) product = byIdentifier.get(String(identifier).toLowerCase());
   }
-  const store = item.store || item.merchant || item.advertiser || item.brand;
+  const store = item.store || item.merchant || item.advertiser || process.env.PCMASTER_AWIN_STORE_NAME;
   const price = parsePrice(item.price);
   const url = item.url || item.link || item.deep_link;
   const condition = String(item.condition || "").toLowerCase();
