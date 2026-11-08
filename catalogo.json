@@ -340,7 +340,7 @@
     {
       "id": "synex-16gb-ddr4-3200",
       "brand": "Synex",
-      "model": "DDR4 16GB 3200MHz 1.2V",
+      "model": "DDR4 16GB (1x16GB) 3200MHz 1.2V — Single Channel",
       "category": "ram",
       "specs": {
         "memoryType": "DDR4",
