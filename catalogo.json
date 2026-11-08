@@ -46,6 +46,9 @@
           "inStock": true,
           "paymentNote": "Preço à vista informado pela loja"
         }
+      ],
+      "identifiers": [
+        "100-100000457BOX"
       ]
     },
     {
@@ -61,7 +64,10 @@
         "m2Slots": 2
       },
       "researchStatus": "candidate_specs_confirmed_offer_needs_stock_and_price_recheck",
-      "offers": []
+      "offers": [],
+      "identifiers": [
+        "B550M DS3H R2"
+      ]
     },
     {
       "id": "teamgroup-tforce-elite-plus-16gb-ddr4-3200",
@@ -75,7 +81,10 @@
         "estimatedW": 10
       },
       "researchStatus": "candidate_specs_confirmed_offer_needs_stock_recheck",
-      "offers": []
+      "offers": [],
+      "identifiers": [
+        "TPD416G3200HC22DC01"
+      ]
     },
     {
       "id": "adata-swordfish-500gb",
@@ -89,7 +98,10 @@
         "estimatedW": 5
       },
       "researchStatus": "candidate_offer_needs_current_price_and_stock_recheck",
-      "offers": []
+      "offers": [],
+      "identifiers": [
+        "ASWORDFISH-500G-C"
+      ]
     },
     {
       "id": "msi-mag-a650bnl",
@@ -101,7 +113,10 @@
         "efficiency": "80 Plus Bronze"
       },
       "researchStatus": "candidate_offer_needs_stock_recheck",
-      "offers": []
+      "offers": [],
+      "identifiers": [
+        "306-7ZPAX39-HH9"
+      ]
     },
     {
       "id": "aigo-darkflash-c195m-mesh",
@@ -118,7 +133,10 @@
         "psuFormFactor": "ATX"
       },
       "researchStatus": "candidate_specs_confirmed_offer_needs_stock_and_price_recheck",
-      "offers": []
+      "offers": [],
+      "identifiers": [
+        "AC-C195M-MESH-B-HQ1"
+      ]
     },
     {
       "id": "pcyes-rtx-4060-pvr40608gr6df2",
@@ -147,6 +165,9 @@
           "inStock": true,
           "paymentNote": "R$ 2.749,90 à vista no boleto ou Pix; preço parcelado diferente."
         }
+      ],
+      "identifiers": [
+        "PVR40608GR6DF2"
       ]
     }
   ],
