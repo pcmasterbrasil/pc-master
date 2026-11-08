@@ -41,7 +41,7 @@ const PCMaster = (() => {
     return true;
   };
   function generate(catalog, budget, purpose, priority) {
-    const products=usable(catalog.products||[]);
+    const products=usable((catalog.products||[]).map(p=>({...p,offers:[...(p.offers||[]),...(catalog.offers||[]).filter(o=>o.productId===p.id)]})));
     const groups={};
     for (const p of products) (groups[p.category] ||= []).push(p);
     const needsGpu = purpose === "games" || purpose === "editing";
