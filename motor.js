@@ -76,8 +76,8 @@ const PCMaster = (() => {
     if (needsDiscreteGpu || purpose === "work" || (groups.gpu || []).length) categories.push("gpu");
     if ((groups.cooler || []).length) categories.push("cooler");
 
-    const order = categories.slice().sort((a, b) =>
-      (groups[a] || []).length - (groups[b] || []).length);
+    // Mantém CPU antes de GPU/cooler, pois as decisões dessas peças dependem do processador escolhido.
+    const order = categories;
     const chosen = {};
     const results = [];
     const partialCost = () => Object.values(chosen).reduce((sum, item) => sum + Number(item.offer.price), 0);
