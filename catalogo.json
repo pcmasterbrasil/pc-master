@@ -61,7 +61,15 @@
         "memoryType": "DDR4",
         "formFactor": "mATX",
         "estimatedW": 50,
-        "m2Slots": 2
+        "m2Slots": 2,
+        "maxMemoryGb": 128,
+        "memorySlots": 4,
+        "maxMemorySpeedMhz": 3200,
+        "storageInterfaces": [
+          "NVMe PCIe 3.0 x4",
+          "NVMe PCIe 4.0 x4",
+          "SATA M.2"
+        ]
       },
       "researchStatus": "candidate_specs_confirmed_offer_needs_stock_and_price_recheck",
       "offers": [],
@@ -110,7 +118,10 @@
       "category": "psu",
       "specs": {
         "wattageW": 650,
-        "efficiency": "80 Plus Bronze"
+        "efficiency": "80 Plus Bronze",
+        "pcieConnectors": [
+          "2x PCIe 6+2-pin"
+        ]
       },
       "researchStatus": "candidate_offer_needs_stock_recheck",
       "offers": [],
