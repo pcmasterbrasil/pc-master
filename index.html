@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PC MASTER - Monte seu PC</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080d18;color:#f5f7ff;font-family:Arial,sans-serif}
+header{text-align:center;padding:35px 15px;background:linear-gradient(135deg,#101c35,#142c50)}
+header h1{font-size:36px;margin:0;color:#42d9ff}
+header p{color:#c2d4e9}
+main{max-width:750px;margin:25px auto;padding:20px}
+.card{background:#121c2e;border:1px solid #263b58;border-radius:16px;padding:24px;margin-bottom:20px}
+h2{color:#42d9ff;margin-top:0}
+label{display:block;margin:18px 0 8px}
+input,select{width:100%;padding:14px;border-radius:9px;border:1px solid #405675;background:#091322;color:white;font-size:16px}
+button{width:100%;padding:16px;background:#12bce8;color:#06111d;font-size:17px;font-weight:bold;border:0;border-radius:10px;cursor:pointer;margin-top:22px}
+button:hover{background:#63dcff}
+.result{display:none}
+.part{padding:13px;background:#0a1424;border-radius:9px;margin:10px 0;border-left:3px solid #42d9ff}
+.small{font-size:13px;color:#a9bad0;line-height:1.5}
+footer{text-align:center;padding:25px;color:#8fa4bf}
+</style>
+</head>
+<body>
+<header>
+<h1>PC MASTER</h1>
+<p>Monte o PC ideal para o seu orçamento</p>
+</header>
+<main>
+<section class="card">
+<h2>Monte sua configuração</h2>
+<p>Informe seu orçamento e escolha o que pretende fazer com o computador.</p>
+
+<label for="budget">Quanto pretende gastar? (R$)</label>
+<input id="budget" type="number" min="1000" step="100" value="3500">
+
+<label for="purpose">Qual será a finalidade do PC?</label>
+<select id="purpose">
+<option value="games">Jogos</option>
+<option value="work">Trabalho e estudos</option>
+<option value="editing">Edição de vídeos e imagens</option>
+</select>
+
+<label for="priority">O que é mais importante?</label>
+<select id="priority">
+<option value="balance">Equilíbrio entre desempenho e preço</option>
+<option value="performance">Máximo desempenho possível</option>
+<option value="economy">Economizar</option>
+</select>
+
+<button onclick="buildPC()">GERAR MINHA CONFIGURAÇÃO</button>
+</section>
+
+<section class="card result" id="result">
+<h2>Sua configuração recomendada</h2>
+<p id="summary"></p>
+<div id="parts"></div>
+<p class="small" id="advice"></p>
+<button onclick="window.print()">SALVAR / IMPRIMIR CONFIGURAÇÃO</button>
+</section>
+
+<section class="card">
+<h2>Dica PC MASTER</h2>
+<p>Uma boa configuração não depende apenas de uma peça. É importante equilibrar processador, placa de vídeo, memória, armazenamento e fonte.</p>
+</section>
+</main>
+<footer>PC MASTER © 2026 — Monte melhor, gaste com inteligência.</footer>
+
+<script>
+function buildPC(){
+ const budget=Number(document.getElementById('budget').value);
+ const purpose=document.getElementById('purpose').value;
+ const priority=document.getElementById('priority').value;
+
+ if(!Number.isFinite(budget)||budget<1000){
+  alert('Informe um orçamento de pelo menos R$ 1.000.');
+  return;
+ }
+
+ let cpu,gpu,ram,ssd,mother,psu,caseText;
+
+ if(purpose==='games'){
+  cpu='Processador intermediário moderno, com bom desempenho em jogos';
+  gpu='Placa de vídeo dedicada, priorizando o melhor desempenho possível dentro do orçamento';
+  ram='16 GB de memória RAM (preferencialmente 2 módulos)';
+  ssd='SSD NVMe de 1 TB, se couber no orçamento';
+ }else if(purpose==='editing'){
+  cpu='Processador com bom desempenho em múltiplos núcleos';
+  gpu='Placa de vídeo compatível com os programas de edição utilizados';
+  ram='32 GB de memória RAM, se possível';
+  ssd='SSD NVMe de 1 TB ou mais';
+ }else{
+  cpu='Processador moderno com vídeo integrado, se não precisar de placa dedicada';
+  gpu='Vídeo integrado inicialmente; placa dedicada é opcional';
+  ram='16 GB de memória RAM';
+  ssd='SSD de 500 GB ou 1 TB';
+ }
+
+ if(budget<2500){
+  mother='Placa-mãe de entrada compatível com o processador escolhido';
+  psu='Fonte de qualidade, dimensionada para os componentes';
+  caseText='Gabinete ventilado e compatível com a placa-mãe';
+ }else if(budget<5000){
+  mother='Placa-mãe intermediária com possibilidade de expansão';
+  psu='Fonte de boa qualidade com potência adequada à placa de vídeo';
+  caseText='Gabinete com bom fluxo de ar';
+ }else{
+  mother='Placa-mãe intermediária ou avançada, conforme o processador';
+  psu='Fonte de qualidade com margem de potência para os componentes';
+  caseText='Gabinete espaçoso com boa ventilação';
+ }
+
+ if(priority==='economy'){
+  ram=purpose==='editing'?'16 GB de RAM inicialmente':'16 GB de RAM';
+  ssd='SSD de 500 GB, com possibilidade de expansão';
+ }
+ if(priority==='performance' && budget>=5000){
+  ram='32 GB de RAM';
+  ssd='SSD NVMe de 1 TB ou mais';
+ }
+
+ const money=budget.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+ document.getElementById('summary').textContent=
+ 'Orçamento informado: '+money+'. Objetivo: '+({games:'Jogos',work:'Trabalho e estudos',editing:'Edição'}[purpose])+'.';
+
+ const items=[
+ ['Processador',cpu],
+ ['Placa de vídeo',gpu],
+ ['Memória RAM',ram],
+ ['Armazenamento',ssd],
+ ['Placa-mãe',mother],
+ ['Fonte',psu],
+ ['Gabinete',caseText]
+ ];
+
+ document.getElementById('parts').innerHTML=items.map(item=>
+ '<div class="part"><strong>'+item[0]+'</strong><br>'+item[1]+'</div>'
+ ).join('');
+
+ document.getElementById('advice').textContent=
+ 'Importante: esta é uma orientação inicial, não uma lista de peças já validada. Antes de comprar, confira socket, compatibilidade da memória, dimensões, conexões, consumo e potência da fonte. Os preços e a disponibilidade devem ser pesquisados nas lojas.';
+
+ document.getElementById('result').style.display='block';
+ document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
