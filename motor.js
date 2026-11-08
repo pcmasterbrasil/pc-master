@@ -43,7 +43,11 @@ const PCMaster = (() => {
     if (bs.memorySlots && rs.modules && rs.modules > bs.memorySlots) return false;
     if (bs.maxMemorySpeedMhz && rs.speedMhz && rs.speedMhz > bs.maxMemorySpeedMhz) return false;
     if (!bs.formFactor || !Array.isArray(ks.formFactors) || !ks.formFactors.includes(bs.formFactor)) return false;
-    if (!ss.interface || !Array.isArray(bs.storageInterfaces) || !bs.storageInterfaces.includes(ss.interface)) return false;
+    const storageInterfaces = Array.isArray(bs.storageInterfaces) ? bs.storageInterfaces : [];
+    const storageInterfaceCompatible = storageInterfaces.includes(ss.interface) ||
+      (typeof ss.interface === "string" && ss.interface.startsWith("NVMe PCIe ") && ss.interface.endsWith("x4") &&
+        storageInterfaces.some(item => typeof item === "string" && item.startsWith("NVMe PCIe ") && item.endsWith("x4")));
+    if (!ss.interface || !storageInterfaceCompatible) return false;
     if (ss.formFactor === "M.2 2280" && (!bs.m2Slots || bs.m2Slots <= 0)) return false;
     if (gpu && (!Number.isFinite(Number(ks.maxGpuLengthMm)) || !Number.isFinite(Number(gpu.specs?.lengthMm)) ||
         gpu.specs.lengthMm > ks.maxGpuLengthMm)) return false;
