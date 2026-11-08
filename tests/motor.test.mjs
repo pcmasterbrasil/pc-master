@@ -88,6 +88,16 @@ unsupportedStorage.find(p => p.category === "motherboard").specs.storageInterfac
 assert.equal(PCMaster.generate({ products: unsupportedStorage }, 4000, "games", "balance").length, 0,
   "deve rejeitar armazenamento sem interface confirmada na placa-mãe");
 
+const newerNvmeOnOlderSlot = structuredClone(base);
+newerNvmeOnOlderSlot.find(p => p.category === "storage").specs.interface = "NVMe PCIe 4.0 x4";
+assert.equal(PCMaster.generate({ products: newerNvmeOnOlderSlot }, 4000, "games", "balance").length, 1,
+  "deve aceitar SSD NVMe PCIe 4.0 em slot PCIe 3.0 x4 por retrocompatibilidade");
+
+const unsupportedStorageGeneration = structuredClone(base);
+unsupportedStorageGeneration.find(p => p.category === "storage").specs.interface = "SATA III";
+assert.equal(PCMaster.generate({ products: unsupportedStorageGeneration }, 4000, "games", "balance").length, 0,
+  "deve rejeitar interface SATA quando a placa-mãe só oferece NVMe");
+
 const unknownCpuCooler = structuredClone(base);
 delete unknownCpuCooler[0].specs.coolerIncluded;
 assert.equal(PCMaster.generate({ products: unknownCpuCooler }, 4000, "games", "balance").length, 0,
