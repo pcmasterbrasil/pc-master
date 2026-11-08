@@ -26,6 +26,9 @@ if (!feedOffers) {
   catch { throw new Error("Formato não reconhecido. Use JSON com offers[] ou JSONL autorizado."); }
 }
 if (!feedOffers.length) throw new Error("Feed vazio. Catálogo preservado.");
+if (feedOffers.at(-1)?.error) {
+  throw new Error(`Feed Awin incompleto: ${feedOffers.at(-1).message || "erro na última linha"}. Catálogo preservado.`);
+}
 
 const catalog = JSON.parse(await fs.readFile(catalogPath, "utf8"));
 const known = new Map((catalog.products || []).map(p => [p.id, p]));
@@ -78,7 +81,7 @@ for (const original of feedOffers) {
     store: flat.store || flat.merchant || flat.advertiser || flat.advertiser_name || process.env.PCMASTER_AWIN_STORE_NAME,
     price: flat.price,
     currency: flat.currency || (typeof flat.price === "string" ? flat.price.trim().split(/\\s+/).pop() : undefined),
-    url: flat.aw_deep_link || flat.deep_link || flat.link || flat.url,
+    url: isAwinFeed ? (flat.aw_deep_link || flat.deep_link) : (flat.url || flat.link || flat.deep_link),
     condition: flat.condition,
     availability: flat.availability,
     inStock: flat.inStock
