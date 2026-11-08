@@ -36,6 +36,7 @@ for (const product of catalog.products || []) {
 const now = new Date();
 const today = now.toISOString().slice(0, 10);
 const accepted = new Map();
+const outOfStock = new Map();
 const rejected = [];
 const parsePrice = value => {
   if (typeof value === "number") return value;
@@ -54,7 +55,15 @@ for (const item of feedOffers) {
   const url = item.url || item.link || item.deep_link;
   const condition = String(item.condition || "").toLowerCase();
   const availability = String(item.availability || "").toLowerCase();
-  const inStock = item.inStock === true || item.in_stock === "1" || availability === "in_stock";
+  const inStock = item.inStock === true || item.in_stock === "1" || item.in_stock === true || availability === "in_stock";
+  if (product && typeof store === "string" && store.trim() &&
+      (item.inStock === false || item.in_stock === "0" || availability === "out_of_stock" || availability === "not_available")) {
+    const key = product.id;
+    const stores = outOfStock.get(key) || new Set();
+    stores.add(store.trim());
+    outOfStock.set(key, stores);
+    continue;
+  }
   const currency = String(item.currency || item.price || "").toUpperCase();
   const valid = product && typeof store === "string" && store.trim() &&
     Number.isFinite(price) && price > 0 &&
@@ -76,8 +85,12 @@ for (const item of feedOffers) {
   list.push(offer);
   accepted.set(product.id, list);
 }
-if (!accepted.size) throw new Error(`Nenhuma oferta passou na validação. ${rejected.length} registros rejeitados; catálogo preservado.`);
+if (!accepted.size && !outOfStock.size) throw new Error(`Nenhuma oferta passou na validação. ${rejected.length} registros rejeitados; catálogo preservado.`);
 
+for (const [productId, stores] of outOfStock) {
+  const product = known.get(productId);
+  product.offers = (product.offers || []).filter(offer => !stores.has(offer.store));
+}
 for (const [productId, offers] of accepted) {
   const product = known.get(productId);
   const unique = new Map();
@@ -92,9 +105,10 @@ catalog.lastPriceSyncAt = now.toISOString();
 catalog.priceSync = {
   status: "success",
   source: process.env.PCMASTER_AWIN_FEED_URL ? "awin_authorized_feed" : "authorized_partner_feed",
-  updatedProducts: accepted.size,
+  updatedProducts: new Set([...accepted.keys(), ...outOfStock.keys()]).size,
   acceptedOffers: [...accepted.values()].reduce((n, list) => n + list.length, 0),
+  removedOutOfStockOffers: [...outOfStock.values()].reduce((n, stores) => n + stores.size, 0),
   rejectedOffers: rejected.length
 };
 await fs.writeFile(catalogPath, JSON.stringify(catalog, null, 2) + "\n");
-console.log(`Catálogo atualizado: ${accepted.size} produtos. Ofertas rejeitadas: ${rejected.length}.`);
+console.log(`Catálogo atualizado: ${new Set([...accepted.keys(), ...outOfStock.keys()]).size} produtos. Ofertas rejeitadas: ${rejected.length}.`);
