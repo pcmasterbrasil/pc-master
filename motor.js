@@ -72,11 +72,8 @@ const PCMaster = (() => {
     if (REQUIRED.some(category => !(groups[category] || []).length)) return [];
     if (needsDiscreteGpu && !(groups.gpu || []).length) return [];
 
-    const cpuHasIntegrated = products.some(p => p.category === "cpu" &&
-      offerOptions(p).length && p.specs?.integratedGraphics === true);
     const categories = [...REQUIRED];
-    if (needsDiscreteGpu || !cpuHasIntegrated) categories.push("gpu");
-    // Cooler só é uma categoria obrigatória se algum processador selecionado exigir cooler avulso.
+    if (needsDiscreteGpu || (groups.gpu || []).length) categories.push("gpu");
     if ((groups.cooler || []).length) categories.push("cooler");
 
     const order = categories.slice().sort((a, b) =>
@@ -103,6 +100,15 @@ const PCMaster = (() => {
         return;
       }
       const category = order[index];
+      if (category === "gpu" && purpose === "work" &&
+          chosen.cpu?.product.specs?.integratedGraphics === true) {
+        walk(index + 1);
+        if (results.length >= MAX_BUILDS) return;
+      }
+      if (category === "cooler" && chosen.cpu?.product.specs?.coolerIncluded !== false) {
+        walk(index + 1);
+        if (results.length >= MAX_BUILDS) return;
+      }
       for (const option of groups[category] || []) {
         chosen[category] = option;
         if (partialCost() <= budget) walk(index + 1);
