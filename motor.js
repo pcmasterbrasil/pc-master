@@ -73,7 +73,7 @@ const PCMaster = (() => {
     if (needsDiscreteGpu && !(groups.gpu || []).length) return [];
 
     const categories = [...REQUIRED];
-    if (needsDiscreteGpu || (groups.gpu || []).length) categories.push("gpu");
+    if (needsDiscreteGpu || purpose === "work" || (groups.gpu || []).length) categories.push("gpu");
     if ((groups.cooler || []).length) categories.push("cooler");
 
     const order = categories.slice().sort((a, b) =>
