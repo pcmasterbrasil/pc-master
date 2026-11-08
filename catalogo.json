@@ -477,6 +477,44 @@
       ],
       "specSource": "https://www.asrock.com/Graphics-Card/AMD/Radeon%20RX%206600%20Challenger%20D%208GB/index.br.asp",
       "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "apacer-nox-16gb-2x8-ddr4-3200-ah4u16g32c28ymwaa-2",
+      "brand": "Apacer",
+      "model": "NOX 16GB (2x8GB) DDR4-3200 CL16 (AH4U16G32C28YMWAA-2)",
+      "category": "ram",
+      "specs": {
+        "memoryType": "DDR4",
+        "capacityGb": 16,
+        "modules": 2,
+        "speedMhz": 3200,
+        "latency": "CL16",
+        "estimatedW": 10
+      },
+      "researchStatus": "candidate_price_observed_stock_needs_confirmation",
+      "offers": [],
+      "identifiers": [
+        "AH4U16G32C28YMWAA-2"
+      ]
+    },
+    {
+      "id": "mancer-dantalion-z-16gb-2x8-ddr4-3200-mcr-dtlz2x8c16-16gb",
+      "brand": "Mancer",
+      "model": "Dantalion Z 16GB (2x8GB) DDR4-3200 CL16 (MCR-DTLZ2X8C16-16GB)",
+      "category": "ram",
+      "specs": {
+        "memoryType": "DDR4",
+        "capacityGb": 16,
+        "modules": 2,
+        "speedMhz": 3200,
+        "latency": "CL16",
+        "estimatedW": 10
+      },
+      "researchStatus": "candidate_price_observed_stock_needs_confirmation",
+      "offers": [],
+      "identifiers": [
+        "MCR-DTLZ2X8C16-16GB"
+      ]
     }
   ],
   "offers": [],
@@ -494,7 +532,8 @@
     "Kit Team Group T-Force Elite Plus 16GB (2x8GB) DDR4-3200 teve preço de R$ 299,99 no Pix rechecado na Pichau em 2026-11-08, mas sem confirmação explícita de estoque no conteúdo acessível; permanece fora do gerador.",
     "Compatibilidade de BIOS refinada: a lista de CPUs compatíveis da MSI reproduzida pela Pangoly indica BIOS 7C96v27 como mínima para Ryzen 5 5500 na B550M-A PRO. Confirmar a versão instalada com a loja antes da compra.",
     "ASRock Radeon RX 7600 Challenger OC 8GB (90-GA41ZZ-00UANF) adicionada como candidata técnica em 2026-11-08. Especificações oficiais ASRock: 8GB GDDR6, 128-bit, PCIe 4.0 x8, 165W, 1x8-pin, PSU recomendado 550W e comprimento 269,2mm. Oferta FGTEC com 5 unidades e R$ 2.616,60 observada, mas condição nova ainda precisa confirmação explícita; não participa do gerador.",
-    "ASRock Radeon RX 6600 Challenger D 8GB adicionada como candidata técnica em 2026-11-08, com especificações conferidas na página oficial ASRock. Ainda sem oferta direta validada com condição nova, preço e estoque; não participa do gerador."
+    "ASRock Radeon RX 6600 Challenger D 8GB adicionada como candidata técnica em 2026-11-08, com especificações conferidas na página oficial ASRock. Ainda sem oferta direta validada com condição nova, preço e estoque; não participa do gerador.",
+    "Dois kits de memória DDR4 16GB (2x8GB) adicionados como candidatos em 2026-11-08: Apacer NOX CL16 (R$ 289,99 Pix observado na Pichau) e Mancer Dantalion Z CL16 (R$ 269,99 Pix observado na Pichau). Ambos aguardam confirmação explícita de estoque e condição nova; ainda não entram no gerador."
   ],
   "researchQueue": [
     {
@@ -578,6 +617,24 @@
       "source": "Varejistas brasileiros / comparadores",
       "note": "Especificações oficiais ASRock conferidas: 8GB GDDR6, 128-bit, PCIe 4.0 x8, conector 8-pin, fonte recomendada 500W e comprimento 269mm. Pesquisas de mercado retornaram preços divergentes e anúncios sem confirmação suficiente de condição nova e estoque. Manter fora do gerador até validar página direta da loja, preço atual, produto novo e disponibilidade.",
       "stockConfirmed": false
+    },
+    {
+      "productId": "apacer-nox-16gb-2x8-ddr4-3200-ah4u16g32c28ymwaa-2",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/memoria-apacer-nox-16gb-2x8gb-ddr4-3200mhz-c16-branca-ah4u16g32c28ymwaa-2",
+      "observedPrice": 289.99,
+      "observedPriceAt": "2026-11-08",
+      "stockConfirmed": false,
+      "note": "Página de produto confirma kit 16GB (2x8GB), DDR4-3200 CL16, SKU AH4U16G32C28YMWAA-2 e preço de R$ 289,99 no Pix. Conteúdo acessível não confirmou estoque; não ativar oferta até confirmar disponibilidade, condição nova e preço."
+    },
+    {
+      "productId": "mancer-dantalion-z-16gb-2x8-ddr4-3200-mcr-dtlz2x8c16-16gb",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/memoria-mancer-dantalion-z-16gb-2x8gb-ddr4-3200mhz-cl16-preto-e-branco-mcr-dtlz2x8c16-16gb",
+      "observedPrice": 269.99,
+      "observedPriceAt": "2026-11-08",
+      "stockConfirmed": false,
+      "note": "Página de produto confirma kit 16GB (2x8GB), DDR4-3200 CL16, SKU MCR-DTLZ2X8C16-16GB e preço de R$ 269,99 no Pix. Conteúdo acessível não confirmou estoque; não ativar oferta até confirmar disponibilidade, condição nova e preço."
     }
   ]
 }
