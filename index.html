@@ -102,7 +102,7 @@ async function buildPC(){
   const catalog=await response.json();
   updatePriceStatus(catalog);
   const builds=window.PCMaster.generate(catalog,budget,purpose,priority);
-  summary.textContent='Orçamento: '+budget.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · Finalidade: '+({games:'Jogos',work:'Trabalho e estudos',editing:'Edição'}[purpose])+' · Prioridade: '+({balance:'Equilíbrio',performance:'Desempenho',economy:'Economia'}[priority]);
+  summary.textContent='Orçamento: '+budget.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})+' · Finalidade: '+({games:'Jogos',work:'Trabalho e estudos',editing:'Edição'}[purpose])+' · Prioridade: '+({balance:'Equilíbrio',performance:'Desempenho',economy:'Economia'}[priority])+' · '+builds.length+' configurações encontradas';
   if(!builds.length){
    const empty=document.createElement('div');empty.className='part';empty.textContent='Ainda não há peças com ofertas verificadas suficientes para montar uma configuração válida. Estamos preparando o catálogo de produtos novos vendidos no Brasil. Nenhum modelo, preço ou link será inventado.';partsBox.appendChild(empty);
    advice.textContent='Quando houver peças e ofertas compatíveis, o PC MASTER exibirá as combinações disponíveis dentro do orçamento.';
