@@ -110,9 +110,16 @@ function renderBuild(build,index){
  partsBox.appendChild(card);
  document.getElementById('progress').textContent='Configuração '+(index+1)+' de '+availableBuilds.length+' configurações encontradas para estes critérios.';
  document.getElementById('advice').textContent='Ofertas consultadas nos últimos 7 dias. Confirme preço e estoque na loja antes de comprar.';
- document.getElementById('next-build').style.display='block';
- document.getElementById('next-build').disabled=false;
- document.getElementById('next-build').textContent='GERAR OUTRA CONFIGURAÇÃO';
+ const nextButton=document.getElementById('next-build');
+ const isLast=index===availableBuilds.length-1;
+ nextButton.style.display='block';
+ nextButton.disabled=isLast;
+ nextButton.textContent=isLast?'MÁXIMO DE CONFIGURAÇÕES ATINGIDO':'GERAR PRÓXIMA CONFIGURAÇÃO ('+(index+1)+'/'+availableBuilds.length+')';
+ if(isLast){
+  const message=document.createElement('div');message.className='part';
+  message.textContent='Você chegou ao máximo de configurações encontradas para este orçamento, finalidade e prioridade. Todas as '+availableBuilds.length+' configurações disponíveis foram exibidas. Altere algum critério para descobrir outras combinações.';
+  partsBox.appendChild(message);
+ }
  document.getElementById('print-build').style.display='block';
 }
 
