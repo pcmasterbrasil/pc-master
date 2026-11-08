@@ -387,6 +387,45 @@
       ],
       "specSource": "https://www.pichau.com.br/processador-amd-ryzen-5-5600-6-core-12-threads-3-5ghz-4-4ghz-turbo-cache-35mb-am4-100-100000927box",
       "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "msi-b550m-a-pro",
+      "brand": "MSI",
+      "model": "B550M-A PRO (B550M-A-PRO)",
+      "category": "motherboard",
+      "specs": {
+        "socket": "AM4",
+        "memoryType": "DDR4",
+        "formFactor": "mATX",
+        "estimatedW": 50,
+        "m2Slots": 1,
+        "maxMemoryGb": 64,
+        "memorySlots": 2,
+        "maxMemorySpeedMhz": 3200,
+        "storageInterfaces": [
+          "NVMe PCIe 3.0 x4",
+          "NVMe PCIe 4.0 x4",
+          "SATA M.2"
+        ]
+      },
+      "researchStatus": "validated_offer",
+      "offers": [
+        {
+          "store": "Pichau",
+          "price": 489.99,
+          "currency": "BRL",
+          "url": "https://www.pichau.com.br/placa-mae-msi-b550m-a-pro-ddr4-socket-am4-m-atx-chipset-amd-b550-b550m-a-pro",
+          "checkedAt": "2026-11-08",
+          "condition": "new",
+          "inStock": true,
+          "paymentNote": "R$ 489,99 no Pix; página da Pichau indicava Produto Disponível. Preço no cartão diferente."
+        }
+      ],
+      "identifiers": [
+        "B550M-A-PRO"
+      ],
+      "specSource": "https://br.msi.com/Motherboard/B550M-A-PRO/Specification",
+      "specsVerifiedAt": "2026-11-08"
     }
   ],
   "offers": [],
@@ -399,7 +438,9 @@
     "Intel Core i5-12400F e placa-mãe Biostar H610MHP 2.0 adicionados com ofertas diretas TerabyteShop conferidas em 2026-11-08; a plataforma Intel agora tem CPU e placa-mãe LGA1700/DDR4 validadas no catálogo.",
     "Fonte MSI MAG A650BNL, SSD Kingston NV3 500GB e gabinete BRX Blazer CA-033 adicionados com ofertas diretas TerabyteShop conferidas em 2026-11-08. O SSD PCIe 4.0 pode operar em slot NVMe PCIe 3.0 x4 com a velocidade limitada pela placa-mãe.",
     "Memória Synex DDR4 16GB 3200MHz adicionada com estoque confirmado em 2026-11-08; é um único módulo, portanto oferece capacidade de 16GB em single-channel. Kits 2x8GB permanecem candidatos até confirmação de estoque.",
-    "Ryzen 5 5600 (100-100000927BOX) cadastrado como candidato técnico; preço à vista de R$ 849,99 observado na Pichau em 2026-11-08, mas sem confirmação explícita de estoque. Não participa do gerador até validação da disponibilidade."
+    "Ryzen 5 5600 (100-100000927BOX) cadastrado como candidato técnico; preço à vista de R$ 849,99 observado na Pichau em 2026-11-08, mas sem confirmação explícita de estoque. Não participa do gerador até validação da disponibilidade.",
+    "Placa-mãe MSI B550M-A PRO adicionada com oferta Pichau de R$ 489,99 no Pix e indicação de Produto Disponível consultadas em 2026-11-08. Soquete AM4, DDR4, mATX, 2 slots de memória, até 64GB e 1 slot M.2. Antes da compra, conferir a versão de BIOS exigida pelo Ryzen específico.",
+    "Kit Team Group T-Force Elite Plus 16GB (2x8GB) DDR4-3200 teve preço de R$ 299,99 no Pix rechecado na Pichau em 2026-11-08, mas sem confirmação explícita de estoque no conteúdo acessível; permanece fora do gerador."
   ],
   "researchQueue": [
     {
@@ -424,9 +465,9 @@
       "productId": "teamgroup-tforce-elite-plus-16gb-ddr4-3200",
       "source": "Pichau",
       "url": "https://www.pichau.com.br/memoria-team-group-t-force-elite-plus-16gb-2x8gb-ddr4-3200mhz-c22-preto-tpd416g3200hc22dc01",
-      "note": "Página da Pichau mostrou R$ 299,99 no Pix e R$ 352,93 no cartão; estoque não foi confirmado pelo conteúdo acessível.",
+      "note": "Página direta confirma SKU TPD416G3200HC22DC01, kit 16GB (2x8GB) DDR4-3200 CL22. Preço R$ 299,99 no Pix e R$ 352,93 no cartão; não exibiu confirmação explícita de estoque no conteúdo consultado. Manter fora das ofertas até validar disponibilidade.",
       "observedPrice": 299.99,
-      "observedPriceAt": "2026-11-07",
+      "observedPriceAt": "2026-11-08",
       "stockConfirmed": false
     },
     {
