@@ -24,6 +24,12 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Validar código e motor de compatibilidade
+        run: |
+          node --check motor.js
+          node --check scripts/sync-prices.mjs
+          node tests/motor.test.mjs
+
       - name: Sincronizar ofertas de fonte autorizada
         env:
           PCMASTER_OFFERS_FEED_URL: ${{ secrets.PCMASTER_OFFERS_FEED_URL }}
