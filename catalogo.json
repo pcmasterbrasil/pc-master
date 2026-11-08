@@ -637,6 +637,167 @@
       ],
       "specSource": "https://www.pichau.com.br/placa-de-video-asus-radeon-rx-6600-dual-v2-8gb-gddr6-128-bit-dual-rx6600-8g-v2",
       "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "kingston-fury-beast-16gb-2x8-ddr4-3200-kf432c16bbk2-16",
+      "brand": "Kingston",
+      "model": "Fury Beast 16GB (2x8GB) DDR4-3200 CL16 (KF432C16BBK2-16)",
+      "category": "ram",
+      "specs": {
+        "memoryType": "DDR4",
+        "capacityGb": 16,
+        "modules": 2,
+        "speedMhz": 3200,
+        "latency": "CL16"
+      },
+      "researchStatus": "candidate_price_observed_stock_and_new_condition_recheck",
+      "offers": [],
+      "identifiers": [
+        "KF432C16BBK2-16"
+      ],
+      "specSource": "https://www.kingston.com/br/memory/gaming/kingston-fury-beast-ddr4-memory",
+      "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "kingston-nv3-1tb-snv3s1000g",
+      "brand": "Kingston",
+      "model": "NV3 1TB M.2 2280 NVMe PCIe 4.0 (SNV3S/1000G)",
+      "category": "storage",
+      "specs": {
+        "capacityGb": 1000,
+        "formFactor": "M.2 2280",
+        "interface": "NVMe PCIe 4.0 x4"
+      },
+      "researchStatus": "validated_offer",
+      "offers": [
+        {
+          "store": "TerabyteShop",
+          "price": 1149.9,
+          "currency": "BRL",
+          "url": "https://www.terabyteshop.com.br/produto/31564/ssd-kingston-nv3-1tb-m2-nvme-2280-pcie-40-leitura-6000mbs-e-gravacao-4000mbs-snv3s1000g",
+          "checkedAt": "2026-11-08",
+          "condition": "new",
+          "inStock": true,
+          "paymentNote": "R$ 1.149,90 à vista no Pix/boleto; página indicava produto novo e pronta entrega."
+        }
+      ],
+      "identifiers": [
+        "SNV3S/1000G"
+      ],
+      "specSource": "https://www.kingston.com/br/ssd/nv3-nvme-pcie-ssd",
+      "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "wd-green-sn350-1tb-wds100t2g0c",
+      "brand": "Western Digital",
+      "model": "WD Green SN350 1TB M.2 NVMe (WDS100T2G0C)",
+      "category": "storage",
+      "specs": {
+        "capacityGb": 1000,
+        "formFactor": "M.2 2280",
+        "interface": "NVMe PCIe 3.0 x4"
+      },
+      "researchStatus": "candidate_price_observed_stock_and_new_condition_recheck",
+      "offers": [],
+      "identifiers": [
+        "WDS100T2G0C"
+      ],
+      "specSource": "https://www.westerndigital.com/products/internal-drives/wd-green-sn350-nvme-ssd",
+      "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "teamgroup-tforce-dark-z-16gb-2x8-ddr4-3200-tdzgd416g3200hc16cdc01",
+      "brand": "Team Group",
+      "model": "T-Force Dark Z 16GB (2x8GB) DDR4-3200 (TDZGD416G3200HC16CDC01)",
+      "category": "ram",
+      "specs": {
+        "memoryType": "DDR4",
+        "capacityGb": 16,
+        "modules": 2,
+        "speedMhz": 3200,
+        "latency": "CL16"
+      },
+      "researchStatus": "candidate_price_observed_stock_and_new_condition_recheck",
+      "offers": [],
+      "identifiers": [
+        "TDZGD416G3200HC16CDC01"
+      ]
+    },
+    {
+      "id": "lexar-nm790-1tb-lnm790x001t-rnnng",
+      "brand": "Lexar",
+      "model": "NM790 1TB M.2 NVMe PCIe 4.0 (LNM790X001T-RNNNG)",
+      "category": "storage",
+      "specs": {
+        "capacityGb": 1000,
+        "formFactor": "M.2 2280",
+        "interface": "NVMe PCIe 4.0 x4"
+      },
+      "researchStatus": "candidate_listing_stock_and_exact_offer_recheck",
+      "offers": [],
+      "identifiers": [
+        "LNM790X001T-RNNNG"
+      ],
+      "specSource": "https://www.lexar.com/product/lexar-nm790-m-2-2280-pcie-gen4x4-nvme-ssd/",
+      "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "xfx-rx7600-swft210-8gb-rx-76pswftfy",
+      "brand": "XFX",
+      "model": "Radeon RX 7600 Speedster SWFT210 8GB GDDR6 (RX-76PSWFTFY)",
+      "category": "gpu",
+      "specs": {
+        "vramGb": 8,
+        "memoryType": "GDDR6",
+        "busWidthBit": 128,
+        "interface": "PCIe 4.0"
+      },
+      "researchStatus": "candidate_exact_model_and_offer_recheck",
+      "offers": [],
+      "identifiers": [
+        "RX-76PSWFTFY"
+      ],
+      "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "xfx-rx6650xt-swft210-8gb-rx-665x8dfdy",
+      "brand": "XFX",
+      "model": "Radeon RX 6650 XT Speedster SWFT210 8GB GDDR6 (RX-665X8DFDY)",
+      "category": "gpu",
+      "specs": {
+        "vramGb": 8,
+        "memoryType": "GDDR6",
+        "busWidthBit": 128
+      },
+      "researchStatus": "candidate_exact_model_and_offer_recheck",
+      "offers": [],
+      "identifiers": [
+        "RX-665X8DFDY"
+      ],
+      "specsVerifiedAt": "2026-11-08"
+    },
+    {
+      "id": "amd-ryzen-5-5600gt-100-100001488box",
+      "brand": "AMD",
+      "model": "Ryzen 5 5600GT (100-100001488BOX)",
+      "category": "cpu",
+      "specs": {
+        "socket": "AM4",
+        "tdpW": 65,
+        "memoryType": "DDR4",
+        "memorySpeedMhz": 3200,
+        "coolerIncluded": true,
+        "integratedGraphics": true,
+        "cores": 6,
+        "threads": 12
+      },
+      "researchStatus": "candidate_offer_price_and_stock_recheck",
+      "offers": [],
+      "identifiers": [
+        "100-100001488BOX"
+      ],
+      "specSource": "https://www.amd.com/en/products/apu/amd-ryzen-5-5600gt",
+      "specsVerifiedAt": "2026-11-08"
     }
   ],
   "offers": [],
@@ -659,7 +820,8 @@
     "Memória Rise Mode Z Series 16GB DDR4-3200 (RM-D4-16G-3200Z) adicionada com oferta TerabyteShop consultada em 2026-11-08: R$ 719,99 à vista, produto novo, pronta entrega e 87 unidades restantes. Módulo único de 16GB; não é kit dual-channel.",
     "Placa-mãe MSI PRO H610M-S DDR4 adicionada com oferta TerabyteShop de R$ 499,99 à vista, produto novo, pronta entrega e 11 unidades restantes consultadas em 2026-11-08. Especificações DDR4/LGA1700/mATX e suporte a CPUs Intel Core de 12ª geração conferidos no fabricante; cadastrada com compatibilidade explícita ao i5-12400F.",
     "SSD SanDisk Optimus 5100 500GB NVMe PCIe 4.0 adicionado com oferta TerabyteShop de R$ 899,90 à vista, produto novo, pronta entrega e 1 unidade restante consultadas em 2026-11-08. O SSD PCIe 4.0 é retrocompatível com slots NVMe PCIe 3.0 x4, operando limitado à velocidade do slot.",
-    "ASUS Dual Radeon RX 6600 V2 8GB (DUAL-RX6600-8G-V2) adicionada como candidata em 2026-11-08. Pichau exibiu R$ 1.559,99 no Pix e especificações detalhadas, mas não foi possível confirmar estoque e condição nova; não participa do gerador até validação."
+    "ASUS Dual Radeon RX 6600 V2 8GB (DUAL-RX6600-8G-V2) adicionada como candidata em 2026-11-08. Pichau exibiu R$ 1.559,99 no Pix e especificações detalhadas, mas não foi possível confirmar estoque e condição nova; não participa do gerador até validação.",
+    "Expansão do catálogo em 2026-11-08: total de 30 produtos cadastrados. Foram adicionados Kingston Fury Beast 16GB (2x8), Kingston NV3 1TB, WD Green SN350 1TB, Team Group T-Force Dark Z 16GB (2x8), Lexar NM790 1TB, XFX RX 7600 SWFT210, XFX RX 6650 XT SWFT210 e AMD Ryzen 5 5600GT. Exceto Kingston NV3 1TB, os novos itens permanecem candidatos e não entram no gerador até confirmação individual de página direta, preço, condição nova e estoque."
   ],
   "researchQueue": [
     {
@@ -771,6 +933,65 @@
       "observedPriceAt": "2026-11-08",
       "stockConfirmed": false,
       "note": "Página direta consultada em 2026-11-08 confirma ASUS Dual Radeon RX 6600 V2, SKU DUAL-RX6600-8G-V2, 8GB GDDR6, 128-bit, PCIe 4.0, conector 8-pin e dimensões 243 x 134 x 49 mm. Preço exibido R$ 1.559,99 no Pix; a página não apresentou confirmação explícita de estoque nem condição nova. Manter fora do gerador até validar disponibilidade e condição."
+    },
+    {
+      "productId": "kingston-fury-beast-16gb-2x8-ddr4-3200-kf432c16bbk2-16",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/memoria-kingston-fury-beast-16gb-2x8gb-ddr4-3200mhz-c16-preto-kf432c16bbk2-16",
+      "stockConfirmed": false,
+      "note": "Página Pichau consultada em 2026-11-08: modelo KF432C16BBK2-16, kit 16GB (2x8GB) DDR4-3200 CL16, R$ 389,99 no Pix. Revalidar condição nova e estoque na página antes de ativar.",
+      "observedPrice": 389.99,
+      "observedPriceAt": "2026-11-08"
+    },
+    {
+      "productId": "wd-green-sn350-1tb-wds100t2g0c",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/ssd-wd-green-sn350-1tb-m-2-2280-pcie-nvme-leitura-2400-mb-s-gravacao-1850-mb-s-wds100t2g0c",
+      "stockConfirmed": false,
+      "note": "Página Pichau consultada em 2026-11-08: WD Green SN350 1TB, NVMe PCIe 3.0 x4, R$ 959,99 no Pix. Revalidar condição nova e estoque explícito.",
+      "observedPrice": 959.99,
+      "observedPriceAt": "2026-11-08"
+    },
+    {
+      "productId": "teamgroup-tforce-dark-z-16gb-2x8-ddr4-3200-tdzgd416g3200hc16cdc01",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/memoria-team-group-t-force-dark-z-16gb-2x8-ddr4-3200mhz-cinza-tdzgd416g3200hc16cdc01",
+      "stockConfirmed": false,
+      "note": "Página Pichau consultada em 2026-11-08: kit 16GB (2x8GB) DDR4-3200, R$ 399,99 no Pix. Revalidar condição nova e estoque.",
+      "observedPrice": 399.99,
+      "observedPriceAt": "2026-11-08"
+    },
+    {
+      "productId": "lexar-nm790-1tb-lnm790x001t-rnnng",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/hardware/ssd",
+      "stockConfirmed": false,
+      "note": "Listagem de SSDs Pichau consultada em 2026-11-08 exibia Lexar NM790 1TB por R$ 1.299,99 no Pix, mas a URL disponível é categoria e não prova estoque do SKU individual. Localizar página direta e revalidar.",
+      "observedPrice": 1299.99,
+      "observedPriceAt": "2026-11-08"
+    },
+    {
+      "productId": "xfx-rx7600-swft210-8gb-rx-76pswftfy",
+      "source": "Pichau",
+      "url": "https://www.pichau.com.br/monte-seu-pc/9043bb98-6687-470e-b5f1-b10efeb1e22d",
+      "stockConfirmed": false,
+      "note": "SKU RX-76PSWFTFY apareceu em uma montagem de PC da Pichau. O conteúdo consultado não permite confirmar preço individual, condição e estoque; buscar página direta do produto."
+    },
+    {
+      "productId": "xfx-rx6650xt-swft210-8gb-rx-665x8dfdy",
+      "source": "SeuHardware",
+      "url": "https://seuhardware.com/hardware/placas-de-video",
+      "stockConfirmed": false,
+      "note": "Listagem comparativa consultada em 2026-11-08 mostra XFX RX 6650 XT SWFT210, SKU RX-665X8DFDY, por R$ 1.909,00; não há confirmação de loja, estoque, condição e link direto. Manter como candidato.",
+      "observedPrice": 1909,
+      "observedPriceAt": "2026-11-08"
+    },
+    {
+      "productId": "amd-ryzen-5-5600gt-100-100001488box",
+      "source": "Fabricante AMD / varejistas brasileiros",
+      "url": "https://www.amd.com/en/products/apu/amd-ryzen-5-5600gt",
+      "stockConfirmed": false,
+      "note": "Adicionado como candidato técnico; procurar oferta direta de varejista com preço atual, produto novo e estoque explícito antes de ativar."
     }
   ]
 }
